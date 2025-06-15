@@ -29,3 +29,6 @@
 
 جميع الحقوق محفوظة © زياد محمد 2025  
 [YouTube](https://www.youtube.com/@FDJTS)
+[Twitter](https://x.com/fdjts1)
+[Discord Server](https://discord.com/invite/raU9FB2aeb)
+[E-mail](fdjts1@gmail.com)
