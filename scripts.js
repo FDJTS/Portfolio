@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("section, .project-card, .tutorial-card, .comment-box").forEach(el => {
     observer.observe(el);
   });
-
+});
 
 async function loadGitHubProjects() {
   const container = document.getElementById("github-projects");
