@@ -1,4 +1,4 @@
-# Zyad Mohamed | Portfolio
+# FDJTS | Portfolio
 
 موقعي الشخصي لعرض مشاريعي البرمجية وشروحاتي العملية في البرمجة وتطوير الألعاب.
 
@@ -27,7 +27,7 @@
 
 ## الحقوق
 
-جميع الحقوق محفوظة © زياد محمد 2025  
+جميع الحقوق محفوظة © FDJTS 2025  
 [YouTube](https://www.youtube.com/@FDJTS)
 [Twitter](https://x.com/fdjts1)
 [Discord Server](https://discord.com/invite/raU9FB2aeb)
