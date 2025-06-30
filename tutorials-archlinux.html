@@ -2,21 +2,24 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>أسهل طريقة لتثبيت Arch Linux | زياد محمد</title>
+  <title>أسهل طريقة لتثبيت Arch Linux | FDJTS</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
   <style>
     pre.code-box {
       position: relative;
       margin-bottom: 18px;
-      /* تعديل padding لإبعاد زر النسخ عن الكود */
       padding-top: 2.5em;
+      background: var(--surface2);
+      border-radius: 10px;
+      border: 1px solid var(--surface2);
     }
     .copy-btn {
       position: absolute;
       left: 12px;
       top: 8px;
-      background: #00ffd5;
-      color: #222;
+      background: var(--main);
+      color: #fff;
       border: none;
       border-radius: 8px;
       padding: 4px 16px;
@@ -24,31 +27,28 @@
       font-weight: bold;
       cursor: pointer;
       z-index: 2;
-      transition: background 0.2s;
-    }
-    .copy-btn:hover {
-      background: #ffaa00;
-      color: #222;
+      transition: none;
     }
     pre code {
-      font-size: 1.25rem;
-      font-weight: bold;
+      font-size: 1.13rem;
+      font-family: 'Cairo', Arial, sans-serif;
       direction: ltr;
       user-select: all;
-      background: #222b3a;
-      color: #00ffd5;
+      background: transparent;
+      color: var(--main);
       border-radius: 10px;
       padding: 18px;
       display: block;
       margin-bottom: 0;
       line-height: 2.1;
       word-break: break-all;
-      /* إزالة أي margin-top حتى لا يتزاحم مع الزر */
       margin-top: 0;
     }
+    body:not(.light) pre code {
+      color: #00ffd5;
+    }
     body.light pre code {
-      background: #f5f7fa;
-      color: #222;
+      color: #0067b8;
     }
   </style>
 </head>
@@ -219,7 +219,7 @@ reboot</code></pre>
     </section>
   </main>
   <footer>
-    جميع الحقوق محفوظة &copy; زياد محمد 2025
+    جميع الحقوق محفوظة &copy; FDJTS 2025
   </footer>
   <script>
     function copyCode(btn) {
@@ -231,4 +231,5 @@ reboot</code></pre>
   </script>
   <script src="scripts.js"></script>
 </body>
+</html>
 </html>
