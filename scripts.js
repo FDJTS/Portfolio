@@ -1,4 +1,3 @@
-// زر الوضع الليلي/الفاتح نصي
 document.addEventListener("DOMContentLoaded", () => {
   const themeBtn = document.querySelector(".toggle-theme");
   function updateThemeBtn() {
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   if (themeBtn) {
-    // استرجاع الوضع من localStorage
+
     if (localStorage.getItem("theme") === "light") {
       document.body.classList.add("light");
     }
@@ -21,12 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // تحميل مشاريع GitHub تلقائياً (تغيير اسم المستخدم حسب حسابك)
   if (document.getElementById("github-projects")) {
     loadGitHubProjects();
   }
 
-  // أنيميشن عند ظهور العناصر بالتمرير
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -38,11 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
-  // معالجة فورم التواصل إذا لم يعمل PHP
   const contactForm = document.querySelector('.contact-form');
   if (contactForm && contactForm.action.endsWith('contact.php')) {
     contactForm.addEventListener('submit', function(e) {
-      // إذا كان الموقع على file:// أو لم يعمل PHP
       if (location.protocol === 'file:' || location.hostname === '127.0.0.1' || location.hostname === 'localhost') {
         e.preventDefault();
         alert("تم إرسال رسالتك بنجاح (وهمي - PHP غير مفعل)!");
@@ -52,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// جلب مشاريع GitHub وعرضها كبطاقات
 async function loadGitHubProjects() {
   const container = document.getElementById("github-projects");
   if (!container) return;
@@ -64,11 +58,9 @@ async function loadGitHubProjects() {
     container.innerHTML = `<div class="projects-grid"></div>`;
     const grid = container.querySelector(".projects-grid");
     repos.slice(0, 6).forEach((repo, i) => {
-      // صور عشوائية لكل مشروع
-      const imgUrl = `https://picsum.photos/seed/zyad${i+1}/400/180`;
+      const imgUrl = ``;
       grid.innerHTML += `
         <div class="project-card">
-          <img src="${imgUrl}" alt="Project image">
           <h3>${repo.name}</h3>
           <p>${repo.description || "مشروع برمجي بدون وصف."}</p>
           <a href="${repo.html_url}" target="_blank" rel="noopener">شاهد على GitHub</a>
