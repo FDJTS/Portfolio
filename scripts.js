@@ -35,18 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
-  const contactForm = document.querySelector('.contact-form');
-  if (contactForm && contactForm.action.endsWith('contact.php')) {
-    contactForm.addEventListener('submit', function(e) {
-      if (location.protocol === 'file:' || location.hostname === '127.0.0.1' || location.hostname === 'localhost') {
-        e.preventDefault();
-        alert("تم إرسال رسالتك بنجاح (وهمي - PHP غير مفعل)!");
-        contactForm.reset();
-      }
-    });
-  }
-});
-
 async function loadGitHubProjects() {
   const container = document.getElementById("github-projects");
   if (!container) return;
