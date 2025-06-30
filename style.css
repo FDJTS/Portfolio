@@ -1,7 +1,5 @@
-/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
-/* Reset & base */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Cairo', Arial, sans-serif;
@@ -15,7 +13,6 @@ body {
   font-size: 15px;
 }
 
-/* الوضع الفاتح والداكن */
 body.light {
   --bg: #f5f8fb;
   --text: #1b2c44;
@@ -35,7 +32,6 @@ body:not(.light) {
   --main: #00ffd5;
 }
 
-/* موجة SVG في الخلفية تغطي الصفحة بالكامل */
 body::before {
   content: "";
   position: fixed;
@@ -49,7 +45,6 @@ body:not(.light)::before {
   background: url('data:image/svg+xml;utf8,<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><path d="M0,700 Q600,900 1920,700 V1080 H0Z" fill="%23232b3b" opacity="0.7"/><path d="M0,800 Q800,1100 1920,800 V1080 H0Z" fill="%23181c22" opacity="0.5"/></svg>') no-repeat center center/cover;
 }
 
-/* Navbar RTL */
 nav {
   width: 100%;
   background: var(--surface);
@@ -101,7 +96,6 @@ nav ul li a.cta.active {
   background: var(--accent-hover);
 }
 
-/* إزالة كل المؤثرات عند hover/active/focus */
 nav ul li a:hover,
 nav ul li a:active,
 nav ul li a.cta:hover,
@@ -126,7 +120,6 @@ input:focus, textarea:focus {
   transition: none !important;
 }
 
-/* Header Hero */
 .hero-header {
   display: flex;
   align-items: center;
@@ -196,7 +189,6 @@ body:not(.light) .hero-header .hero-content p {
   border: 2px solid var(--surface2);
 }
 
-/* صورة البروفايل يمين */
 .hero-header .hero-img {
   flex: 1 1 340px;
   display: flex;
@@ -213,7 +205,7 @@ body:not(.light) .hero-header .hero-content p {
   background: var(--surface2);
 }
 
-/* باقي الأقسام */
+
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -286,7 +278,7 @@ body:not(.light) .project-card p, body:not(.light) .tutorial-card p {
   transition: none;
 }
 
-/* Contact form */
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -331,7 +323,7 @@ body:not(.light) .project-card p, body:not(.light) .tutorial-card p {
   transition: none;
 }
 
-/* Footer */
+
 footer {
   background: var(--surface);
   color: #888;
@@ -349,7 +341,7 @@ body:not(.light) footer {
   color: #b7c3d1;
 }
 
-/* زر الوضع الليلي/الفاتح */
+
 .toggle-theme {
   position: fixed;
   top: 18px;
@@ -367,7 +359,7 @@ body:not(.light) footer {
   transition: none;
 }
 
-/* Responsive */
+
 @media (max-width: 1100px) {
   .hero-header { flex-direction: column-reverse; align-items: center; padding: 40px 8px 0 8px; }
   .hero-header .hero-img { justify-content: center; margin-bottom: 24px; }
