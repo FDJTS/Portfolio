@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>زياد محمد | الصفحة الرئيسية</title>
+  <title>FDJTS | الصفحة الرئيسية</title>
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
@@ -15,26 +15,26 @@
       <li><a href="index.html" class="active">الرئيسية</a></li>
       <li><a href="projects.html">مشاريعي</a></li>
       <li><a href="tutorials.html">شروحات</a></li>
-      <li><a href="contact.html">تواصل</a></li>
+      <li><a href="contact.html" class="cta">تواصل</a></li>
     </ul>
   </nav>
-  <header>
-    <img src="channels4_profile.jpg" alt="Zyad Mohamed" class="profile-img">
-    <h1>زياد محمد</h1>
-    <p>مبرمج ومطور ويب | عاشق للبرمجة والألعاب | أشارك مشاريعي وشروحاتي هنا</p>
+  <header class="hero-header">
+    <div class="hero-content">
+      <span class="pre-title">شروحات ومشاريع برمجية</span>
+      <h1>مبرمج ومطور ويب</h1>
+      <p>أشارك مشاريعي وشروحاتي العملية في البرمجة وتطوير الألعاب.</p>
+      <div class="hero-btns">
+        <a href="projects.html" class="cta">شاهد مشاريعي</a>
+        <a href="contact.html" class="secondary">تواصل معي</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="channels4_profile.jpg" alt="Zyad Mohamed">
+    </div>
   </header>
   <main>
     <section>
-      <h2>من أنا؟</h2>
-      <p>
-        أنا زياد محمد، شاب مهتم ببرمجة المواقع وتطوير الألعاب.<br>
-        هنا هتلاقي مشاريعي البرمجية وشروحاتي العملية .<br>
-        أحب مشاركة المعرفة وأساعد الآخرين في تعلم البرمجة.<br>
-      </p>
-    </section>
-    <section>
-      <h2>شروحاتي
-      </h2>
+      <h2>شروحاتي</h2>
       <div class="projects-grid">
         <div class="project-card">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="Godot Project">
@@ -69,7 +69,10 @@
     </section>
   </main>
   <footer>
-    جميع الحقوق محفوظة &copy; زياد محمد 2025
+    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
 </body>
 </html>
