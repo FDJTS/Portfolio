@@ -20,9 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
   if (document.getElementById("github-projects")) {
     loadGitHubProjects();
   }
+
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("section, .project-card, .tutorial-card, .comment-box").forEach(el => {
     observer.observe(el);
   });
+
 
 async function loadGitHubProjects() {
   const container = document.getElementById("github-projects");
