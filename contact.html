@@ -22,9 +22,6 @@
     <div class="hero-content">
       <span class="pre-title">تواصل معي</span>
       <h1>راسلني لأي استفسار أو تعاون</h1>
-      <div class="hero-btns">
-        <a href="mailto:zyadmohamed343@gmail.com" class="cta">راسلني الآن</a>
-      </div>
     </div>
     <div class="hero-img">
       <img src="channels4_profile.jpg" alt="FDJTS">
@@ -35,17 +32,18 @@
       <form class="contact-form" id="contactForm">
         <input type="text" name="name" placeholder="اسمك" required>
         <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+        <input type="text" name="subject" placeholder="الموضوع" required>
         <textarea name="message" placeholder="رسالتك" rows="6" required></textarea>
         <button type="submit">إرسال</button>
       </form>
       <div id="formMsg" class="form-msg"></div>
-      <script src="scripts.js"></script>
       <script>
         document.getElementById('contactForm').onsubmit = async function(e) {
           e.preventDefault();
           const form = e.target;
           const name = form.name.value.trim();
           const email = form.email.value.trim();
+          const subject = form.subject.value.trim();
           const message = form.message.value.trim();
           const msgDiv = document.getElementById('formMsg');
           msgDiv.style.display = 'none';
@@ -64,6 +62,12 @@
             msgDiv.style.display = 'block';
             return;
           }
+          if (subject.length < 2 || subject.length > 100) {
+            msgDiv.textContent = "يرجى إدخال موضوع مناسب.";
+            msgDiv.classList.add('error');
+            msgDiv.style.display = 'block';
+            return;
+          }
           if (message.length < 10 || message.length > 2000) {
             msgDiv.textContent = "يرجى كتابة رسالة مناسبة.";
             msgDiv.classList.add('error');
@@ -75,19 +79,19 @@
           btn.disabled = true;
           btn.textContent = "جاري الإرسال...";
           try {
-            const res = await fetch('/api/contact', {
+            const res = await fetch('https://fdjts-backend.onrender.com/send-email', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name, email, message })
+              body: JSON.stringify({ name, email, subject, message })
             });
             const result = await res.json();
-            if (res.ok && result.success) {
+            if (res.ok && result.status === 'success') {
               form.reset();
-              msgDiv.textContent = result.msg || "تم إرسال رسالتك بنجاح! سيتم الرد عليك قريباً على بريدك الشخصي.";
+              msgDiv.textContent = result.message || "تم إرسال رسالتك بنجاح! سيتم الرد عليك قريباً على بريدك الشخصي.";
               msgDiv.classList.add('success');
               msgDiv.style.display = 'block';
             } else {
-              msgDiv.textContent = result.error || "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
+              msgDiv.textContent = result.message || "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
               msgDiv.classList.add('error');
               msgDiv.style.display = 'block';
             }
@@ -99,6 +103,10 @@
           btn.disabled = false;
           btn.textContent = "إرسال";
         };
+
+        function validateEmail(email) {
+          return /^[^@]+@[^@]+\.[^@]+$/.test(email);
+        }
       </script>
     </section>
   </main>
