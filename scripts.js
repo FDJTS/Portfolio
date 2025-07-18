@@ -1,3 +1,4 @@
+// زر الوضع الليلي/الفاتح نصي
 document.addEventListener("DOMContentLoaded", () => {
   const themeBtn = document.querySelector(".toggle-theme");
   function updateThemeBtn() {
@@ -20,12 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   if (document.getElementById("github-projects")) {
     loadGitHubProjects();
   }
 
-
+  // أنيميشن عند ظهور العناصر بالتمرير
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -62,3 +62,8 @@ async function loadGitHubProjects() {
     container.innerHTML = `<p style="color:#ffaa00;">تعذر تحميل المشاريع من GitHub.</p>`;
   }
 }
+
+function validateEmail(email) {
+  return /^[^@]+@[^@]+\.[^@]+$/.test(email);
+}
+
