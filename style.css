@@ -308,6 +308,7 @@ body:not(.light) .project-card p, body:not(.light) .tutorial-card p {
   color: #fff;
   outline: none;
   transition: border 0.2s;
+  margin-bottom: 4px;
 }
 .contact-form input:focus,
 .contact-form textarea:focus {

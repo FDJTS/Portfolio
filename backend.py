@@ -10,7 +10,8 @@ from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
-limiter = Limiter(app, key_func=get_remote_address, default_limits=["5 per minute"])
+limiter = Limiter(key_func=get_remote_address)
+limiter.init_app(app)
 
 EMAIL_ADDRESS = 'fdjts1@gmail.com'
 EMAIL_PASSWORD = os.environ.get('FDJTS_EMAIL_PASS')
@@ -80,5 +81,5 @@ def contact():
         return jsonify({'error': 'حدث خطأ أثناء إرسال الرسالة.'}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
