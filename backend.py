@@ -9,11 +9,9 @@ from time import time
 app = Flask(__name__)
 CORS(app)
 
-# إعدادات البريد (يفضل استخدام كلمة مرور تطبيق خاصة)
 EMAIL_ADDRESS = 'fdjts1@gmail.com'
-EMAIL_PASSWORD = os.environ.get('FDJTS_EMAIL_PASS')  # ضع كلمة المرور في متغير بيئة
+EMAIL_PASSWORD = os.environ.get('FDJTS_EMAIL_PASS')
 
-# حماية سبام: سجل آخر إرسال لكل IP
 rate_limit = {}
 RATE_LIMIT_SECONDS = 30
 
@@ -44,7 +42,6 @@ def contact():
     email = data.get('email', '').strip()
     message = data.get('message', '').strip()
 
-    # تحقق من صحة البيانات
     if not name or len(name) < 2 or len(name) > 40:
         return jsonify({'error': 'يرجى إدخال اسم صحيح.'}), 400
     if not is_valid_email(email):
@@ -52,10 +49,9 @@ def contact():
     if not message or len(message) < 10 or len(message) > 2000:
         return jsonify({'error': 'يرجى كتابة رسالة مناسبة.'}), 400
 
-    # رسالة لصاحب الموقع
     subject_admin = f'رسالة جديدة من موقعك: {name}'
     body_admin = f"الاسم: {name}\nالبريد: {email}\n\nالرسالة:\n{message}\n\n---\nسيتم الرد عليك قريباً على بريدك الشخصي."
-    # رسالة تلقائية للمرسل
+
     subject_user = "تم استلام رسالتك في موقع FDJTS"
     body_user = f"""مرحباً {name}،
 
