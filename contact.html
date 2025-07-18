@@ -32,12 +32,74 @@
   </header>
   <main>
     <section>
-      <div style="font-size:1.2rem;color:#444;padding:32px 0;">
-        للتواصل يرجى إرسال رسالة مباشرة إلى البريد التالي:<br>
-        <a href="mailto:fdjts1@gmail.com" style="color:#1976d2;font-weight:bold;">fdjts1@gmail.com</a>
-        <br><br>
-        أو عبر حساباتي الاجتماعية في الأسفل.
-      </div>
+      <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="اسمك" required>
+        <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+        <textarea name="message" placeholder="رسالتك" rows="6" required></textarea>
+        <button type="submit">إرسال</button>
+      </form>
+      <div id="formMsg" class="form-msg"></div>
+      <script src="scripts.js"></script>
+      <script>
+        document.getElementById('contactForm').onsubmit = async function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const name = form.name.value.trim();
+          const email = form.email.value.trim();
+          const message = form.message.value.trim();
+          const msgDiv = document.getElementById('formMsg');
+          msgDiv.style.display = 'none';
+          msgDiv.className = 'form-msg';
+
+          // تحقق من صحة البيانات
+          if (!validateEmail(email)) {
+            msgDiv.textContent = "يرجى إدخال بريد إلكتروني صحيح.";
+            msgDiv.classList.add('error');
+            msgDiv.style.display = 'block';
+            return;
+          }
+          if (name.length < 2 || name.length > 40) {
+            msgDiv.textContent = "يرجى إدخال اسم صحيح.";
+            msgDiv.classList.add('error');
+            msgDiv.style.display = 'block';
+            return;
+          }
+          if (message.length < 10 || message.length > 2000) {
+            msgDiv.textContent = "يرجى كتابة رسالة مناسبة.";
+            msgDiv.classList.add('error');
+            msgDiv.style.display = 'block';
+            return;
+          }
+
+          const btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = "جاري الإرسال...";
+          try {
+            const res = await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, email, message })
+            });
+            const result = await res.json();
+            if (res.ok && result.success) {
+              form.reset();
+              msgDiv.textContent = result.msg || "تم إرسال رسالتك بنجاح! سيتم الرد عليك قريباً على بريدك الشخصي.";
+              msgDiv.classList.add('success');
+              msgDiv.style.display = 'block';
+            } else {
+              msgDiv.textContent = result.error || "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
+              msgDiv.classList.add('error');
+              msgDiv.style.display = 'block';
+            }
+          } catch {
+            msgDiv.textContent = "تعذر الاتصال بالخادم.";
+            msgDiv.classList.add('error');
+            msgDiv.style.display = 'block';
+          }
+          btn.disabled = false;
+          btn.textContent = "إرسال";
+        };
+      </script>
     </section>
   </main>
   <footer>
