@@ -1,109 +1,23 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تواصل معي | FDJTS</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="scripts.js" defer></script>
-  <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <button class="toggle-theme"></button>
-  <nav>
-    <ul>
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="projects.html">مشاريعي</a></li>
-      <li><a href="tutorials.html">شروحات</a></li>
-      <li><a href="contact.html" class="cta active">تواصل</a></li>
-    </ul>
-  </nav>
-  <header class="hero-header" style="min-height:220px;padding-bottom:40px;">
-    <div class="hero-content">
-      <span class="pre-title">تواصل معي</span>
-      <h1>راسلني لأي استفسار أو تعاون</h1>
-      <div class="hero-btns">
-        <a href="mailto:zyadmohamed343@gmail.com" class="cta">راسلني الآن</a>
-      </div>
-    </div>
-    <div class="hero-img">
-      <img src="channels4_profile.jpg" alt="FDJTS">
-    </div>
-  </header>
-  <main>
-    <section>
-      <form class="contact-form" id="contactForm">
-        <input type="text" name="name" placeholder="اسمك" required>
-        <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
-        <textarea name="message" placeholder="رسالتك" rows="6" required></textarea>
-        <button type="submit">إرسال</button>
-      </form>
-      <div id="formMsg" class="form-msg"></div>
-      <script src="scripts.js"></script>
-      <script>
-        document.getElementById('contactForm').onsubmit = async function(e) {
-          e.preventDefault();
-          const form = e.target;
-          const name = form.name.value.trim();
-          const email = form.email.value.trim();
-          const message = form.message.value.trim();
-          const msgDiv = document.getElementById('formMsg');
-          msgDiv.style.display = 'none';
-          msgDiv.className = 'form-msg';
-
-          // تحقق من صحة البيانات
-          if (!validateEmail(email)) {
-            msgDiv.textContent = "يرجى إدخال بريد إلكتروني صحيح.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-            return;
-          }
-          if (name.length < 2 || name.length > 40) {
-            msgDiv.textContent = "يرجى إدخال اسم صحيح.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-            return;
-          }
-          if (message.length < 10 || message.length > 2000) {
-            msgDiv.textContent = "يرجى كتابة رسالة مناسبة.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-            return;
-          }
-
-          const btn = form.querySelector('button[type="submit"]');
-          btn.disabled = true;
-          btn.textContent = "جاري الإرسال...";
-          try {
-            const res = await fetch('/api/contact', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name, email, message })
-            });
-            const result = await res.json();
-            if (res.ok && result.success) {
-              form.reset();
-              msgDiv.textContent = result.msg || "تم إرسال رسالتك بنجاح! سيتم الرد عليك قريباً على بريدك الشخصي.";
-              msgDiv.classList.add('success');
-              msgDiv.style.display = 'block';
-            } else {
-              msgDiv.textContent = result.error || "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
-              msgDiv.classList.add('error');
-              msgDiv.style.display = 'block';
-            }
-          } catch {
-            msgDiv.textContent = "تعذر الاتصال بالخادم.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-          }
-          btn.disabled = false;
-          btn.textContent = "إرسال";
-        };
-      </script>
-    </section>
-  </main>
-  <footer>
-    جميع الحقوق محفوظة &copy; FDJTS 2025
-  </footer>
+  <div class="container">
+    <h1>Contact Me</h1>
+    <form id="contactForm" method="POST">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="text" id="subject" placeholder="Subject" required />
+      <textarea id="message" placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="status"></p>
+  </div>
+  <script src="js/main.js"></script>
 </body>
 </html>
