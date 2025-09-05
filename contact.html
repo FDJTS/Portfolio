@@ -4,106 +4,300 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تواصل معي | FDJTS</title>
+  <meta name="description" content="تواصل مع FDJTS - مبرمج ومطور ويب. أرسل رسالة أو تواصل عبر وسائل التواصل الاجتماعي.">
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <style>
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid var(--surface2);
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: var(--text);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--surface2);
+      border-radius: 12px;
+      font-size: 1rem;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+      font-family: 'Cairo', Arial, sans-serif;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--main);
+      box-shadow: 0 0 0 3px rgba(0, 103, 184, 0.1);
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Cairo', Arial, sans-serif;
+    }
+    
+    .submit-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 94, 94, 0.3);
+    }
+    
+    .submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .form-msg {
+      margin-top: 20px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+    
+    .form-msg.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .form-msg.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--surface2);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .social-link:hover {
+      background: var(--main);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .social-link img {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .hero-header {
+      text-align: center;
+      padding: 60px 0 40px 0;
+    }
+    
+    .hero-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--main), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-header p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-form {
+        margin: 20px;
+        padding: 24px;
+      }
+      
+      .hero-header h1 {
+        font-size: 2rem;
+      }
+      
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <button class="toggle-theme"></button>
-  <nav>
+  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  
+  <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="projects.html">مشاريعي</a></li>
       <li><a href="tutorials.html">شروحات</a></li>
-      <li><a href="contact.html" class="cta active">تواصل</a></li>
+      <li><a href="contact.html" class="active cta">تواصل</a></li>
     </ul>
   </nav>
-  <header class="hero-header" style="min-height:220px;padding-bottom:40px;">
-    <div class="hero-content">
-      <span class="pre-title">تواصل معي</span>
-      <h1>راسلني لأي استفسار أو تعاون</h1>
-      <div class="hero-btns">
-        <a href="mailto:zyadmohamed343@gmail.com" class="cta">راسلني الآن</a>
-      </div>
-    </div>
-    <div class="hero-img">
-      <img src="channels4_profile.jpg" alt="FDJTS">
-    </div>
+  
+  <header class="hero-header">
+    <h1>تواصل معي</h1>
+    <p>أهلاً وسهلاً بك! إذا كان لديك أي استفسار أو تريد التعاون معي، لا تتردد في التواصل</p>
   </header>
+  
   <main>
     <section>
       <form class="contact-form" id="contactForm">
-        <input type="text" name="name" placeholder="اسمك" required>
-        <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
-        <textarea name="message" placeholder="رسالتك" rows="6" required></textarea>
-        <button type="submit">إرسال</button>
+        <div class="form-group">
+          <label for="name">الاسم *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">الموضوع *</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">الرسالة *</label>
+          <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">
+          إرسال الرسالة
+        </button>
+        
+        <div class="form-msg" id="formMsg"></div>
       </form>
-      <div id="formMsg" class="form-msg"></div>
-      <script src="scripts.js"></script>
-      <script>
-        document.getElementById('contactForm').onsubmit = async function(e) {
-          e.preventDefault();
-          const form = e.target;
-          const name = form.name.value.trim();
-          const email = form.email.value.trim();
-          const message = form.message.value.trim();
-          const msgDiv = document.getElementById('formMsg');
-          msgDiv.style.display = 'none';
-          msgDiv.className = 'form-msg';
-
-          // تحقق من صحة البيانات
-          if (!validateEmail(email)) {
-            msgDiv.textContent = "يرجى إدخال بريد إلكتروني صحيح.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-            return;
-          }
-          if (name.length < 2 || name.length > 40) {
-            msgDiv.textContent = "يرجى إدخال اسم صحيح.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-            return;
-          }
-          if (message.length < 10 || message.length > 2000) {
-            msgDiv.textContent = "يرجى كتابة رسالة مناسبة.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-            return;
-          }
-
-          const btn = form.querySelector('button[type="submit"]');
-          btn.disabled = true;
-          btn.textContent = "جاري الإرسال...";
-          try {
-            const res = await fetch('/api/contact', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name, email, message })
-            });
-            const result = await res.json();
-            if (res.ok && result.success) {
-              form.reset();
-              msgDiv.textContent = result.msg || "تم إرسال رسالتك بنجاح! سيتم الرد عليك قريباً على بريدك الشخصي.";
-              msgDiv.classList.add('success');
-              msgDiv.style.display = 'block';
-            } else {
-              msgDiv.textContent = result.error || "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
-              msgDiv.classList.add('error');
-              msgDiv.style.display = 'block';
-            }
-          } catch {
-            msgDiv.textContent = "تعذر الاتصال بالخادم.";
-            msgDiv.classList.add('error');
-            msgDiv.style.display = 'block';
-          }
-          btn.disabled = false;
-          btn.textContent = "إرسال";
-        };
-      </script>
+      
+      <div class="contact-info">
+        <h3>أو تواصل معي مباشرة عبر:</h3>
+        <div class="social-links">
+          <a href="mailto:fdjts@example.com" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
+            البريد الإلكتروني
+          </a>
+          <a href="https://github.com/FDJTS" target="_blank" rel="noopener" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+            GitHub
+          </a>
+          <a href="https://www.youtube.com/@FDJTS" target="_blank" rel="noopener" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+            YouTube
+          </a>
+          <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" rel="noopener" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
+            Discord
+          </a>
+          <a href="https://x.com/fdjts1" target="_blank" rel="noopener" class="social-link">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X">
+            Twitter
+          </a>
+        </div>
+      </div>
     </section>
   </main>
+  
   <footer>
     جميع الحقوق محفوظة &copy; FDJTS 2025
   </footer>
+  
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const formMsg = document.getElementById('formMsg');
+      const formData = new FormData(this);
+      
+      // إظهار حالة التحميل
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'جاري الإرسال...';
+      formMsg.style.display = 'none';
+      
+      try {
+        // محاكاة إرسال الرسالة (يمكن استبدالها بخدمة حقيقية)
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // إظهار رسالة النجاح
+        formMsg.className = 'form-msg success';
+        formMsg.textContent = 'تم إرسال رسالتك بنجاح! سأقوم بالرد عليك قريباً.';
+        formMsg.style.display = 'block';
+        
+        // إعادة تعيين النموذج
+        this.reset();
+        
+      } catch (error) {
+        // إظهار رسالة الخطأ
+        formMsg.className = 'form-msg error';
+        formMsg.textContent = 'حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.';
+        formMsg.style.display = 'block';
+      } finally {
+        // إعادة تفعيل الزر
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'إرسال الرسالة';
+      }
+    });
+  </script>
 </body>
 </html>

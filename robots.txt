@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://fdjts.github.io/Portfolio/sitemap.xml
+
+# Disallow certain directories
+Disallow: /__pycache__/
+Disallow: /.vs/
+Disallow: /node_modules/
+
+# Allow all other content
+Allow: /*.html
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.ico

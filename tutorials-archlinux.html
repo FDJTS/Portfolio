@@ -54,17 +54,24 @@
 </head>
 <body>
   <button class="toggle-theme"></button>
-  <nav>
+  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  
+  <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="projects.html">مشاريعي</a></li>
       <li><a href="tutorials.html" class="active">شروحات</a></li>
+      <li><a href="contact.html" class="cta">تواصل</a></li>
     </ul>
   </nav>
-  <header>
-    <h1>تثبيت Arch Linux بطريقتين</h1>
-    <p>شرح عملي بالصور والفيديو والأوامر خطوة بخطوة</p>
+  <header class="hero-header" style="min-height:200px;padding:40px 0;text-align:center;">
+    <div class="hero-content fade-in">
+      <span class="pre-title gradient-text">شرح شامل</span>
+      <h1 class="gradient-text">تثبيت Arch Linux بطريقتين</h1>
+      <p>شرح عملي بالصور والفيديو والأوامر خطوة بخطوة مع أمثلة عملية</p>
+    </div>
   </header>
-  <main>
+  <main role="main" aria-label="المحتوى الرئيسي">
     <section>
       <h2>المتطلبات</h2>
       <ul>

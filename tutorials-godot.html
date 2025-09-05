@@ -54,18 +54,135 @@
 </head>
 <body>
   <button class="toggle-theme"></button>
-  <nav>
+  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  
+  <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="projects.html">مشاريعي</a></li>
       <li><a href="tutorials.html" class="active">شروحات</a></li>
+      <li><a href="contact.html" class="cta">تواصل</a></li>
     </ul>
   </nav>
-  <header>
-    <h1>شرح Godot + C++</h1>
-    <p>قريبا...</p>
+  
+  <header class="hero-header" style="min-height:200px;padding:40px 0;text-align:center;">
+    <div class="hero-content fade-in">
+      <span class="pre-title gradient-text">تطوير الألعاب</span>
+      <h1 class="gradient-text">شرح Godot + C++</h1>
+      <p>شرح شامل لإنشاء لعبة 3D باستخدام Godot Engine مع C++</p>
+    </div>
   </header>
   <main>
-    <!-- ...existing code... -->
+    <section>
+      <h2>المتطلبات</h2>
+      <ul>
+        <li>Godot Engine 4.x</li>
+        <li>Visual Studio Code أو أي محرر نصوص</li>
+        <li>معرفة أساسية بـ C++</li>
+        <li>معرفة أساسية بـ GDScript</li>
+      </ul>
+      
+      <h2>خطوات إنشاء المشروع</h2>
+      
+      <div>1. إنشاء مشروع جديد في Godot</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code># افتح Godot Engine
+# اختر "New Project"
+# اختر مجلد للمشروع
+# اختر "Create & Edit"</code></pre>
+      
+      <div>2. إعداد البيئة للـ C++</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code># في Godot، اذهب إلى:
+# Project → Tools → C# → Create C# solution
+# أو استخدم GDExtension للـ C++</code></pre>
+      
+      <div>3. إنشاء المشهد الرئيسي</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code># أضف Node3D كـ root
+# أضف Camera3D كـ child
+# أضف MeshInstance3D للكائنات</code></pre>
+      
+      <h2>كود C++ أساسي</h2>
+      
+      <div>إنشاء كلاس Player</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>#include &lt;godot_cpp/classes/character_body3d.hpp&gt;
+#include &lt;godot_cpp/classes/input.hpp&gt;
+
+using namespace godot;
+
+class Player : public CharacterBody3D {
+    GDCLASS(Player, CharacterBody3D)
+    
+private:
+    float speed = 5.0f;
+    float jump_velocity = 4.5f;
+    
+public:
+    void _ready() override {
+        // تهيئة اللاعب
+    }
+    
+    void _physics_process(double delta) override {
+        Vector3 velocity = get_velocity();
+        
+        // الجاذبية
+        if (!is_on_floor()) {
+            velocity.y -= get_gravity().y * delta;
+        }
+        
+        // القفز
+        if (Input::get_singleton()->is_action_just_pressed("ui_accept") && is_on_floor()) {
+            velocity.y = jump_velocity;
+        }
+        
+        // الحركة
+        Vector2 input_dir = Input::get_singleton()->get_vector("ui_left", "ui_right", "ui_up", "ui_down");
+        Vector3 direction = Vector3(input_dir.x, 0, input_dir.y);
+        
+        if (direction != Vector3()) {
+            velocity.x = direction.x * speed;
+            velocity.z = direction.z * speed;
+        } else {
+            velocity.x = Math::move_toward(velocity.x, 0, speed);
+            velocity.z = Math::move_toward(velocity.z, 0, speed);
+        }
+        
+        set_velocity(velocity);
+        move_and_slide();
+    }
+};
+
+REGISTER_GODOT_CLASS(Player)</code></pre>
+      
+      <h2>إعداد التحكم</h2>
+      <div>في Project Settings → Input Map، أضف:</div>
+      <ul>
+        <li>ui_left: A أو Left Arrow</li>
+        <li>ui_right: D أو Right Arrow</li>
+        <li>ui_up: W أو Up Arrow</li>
+        <li>ui_down: S أو Down Arrow</li>
+        <li>ui_accept: Space أو Enter</li>
+      </ul>
+      
+      <h2>إضافة الإضاءة والمواد</h2>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code># أضف DirectionalLight3D للإضاءة العامة
+# أضف Environment للخلفية
+# استخدم StandardMaterial3D للمواد</code></pre>
+      
+      <h2>نصائح مهمة</h2>
+      <ul>
+        <li>استخدم GDScript للبرمجة السريعة</li>
+        <li>استخدم C++ للأداء العالي</li>
+        <li>اختبر اللعبة على فترات منتظمة</li>
+        <li>استخدم Git لإدارة الكود</li>
+        <li>اقرأ الوثائق الرسمية لـ Godot</li>
+      </ul>
+      
+      <h2>مصادر إضافية</h2>
+      <ul>
+        <li><a href="https://docs.godotengine.org/" target="_blank">Godot Documentation</a></li>
+        <li><a href="https://github.com/godotengine/godot-cpp" target="_blank">Godot C++ Bindings</a></li>
+        <li><a href="https://www.youtube.com/@FDJTS" target="_blank">قناة FDJTS على YouTube</a></li>
+      </ul>
+    </section>
   </main>
   <footer>
     جميع الحقوق محفوظة &copy; FDJTS 2025

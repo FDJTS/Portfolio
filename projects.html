@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مشاريعي | FDJTS</title>
+  <meta name="description" content="مشاريع FDJTS البرمجية - تطبيقات ويب، ألعاب، أدوات، ومكتبات مفتوحة المصدر متاحة على GitHub.">
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0067b8">
 </head>
 <body>
   <button class="toggle-theme"></button>
-  <nav>
+  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  
+  <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="projects.html" class="active">مشاريعي</a></li>
@@ -18,26 +23,88 @@
       <li><a href="contact.html" class="cta">تواصل</a></li>
     </ul>
   </nav>
-  <header class="hero-header" style="min-height:220px;padding-bottom:40px;">
-    <div class="hero-content">
-      <span class="pre-title">مشاريعي البرمجية</span>
-      <h1>كل المشاريع متاحة على GitHub ومفتوحة المصدر</h1>
+  
+  <header class="hero-header" style="min-height:300px;padding-bottom:40px;">
+    <div class="hero-content fade-in">
+      <span class="pre-title gradient-text">مشاريعي البرمجية</span>
+      <h1 class="gradient-text">مشاريع مفتوحة المصدر متاحة على GitHub</h1>
+      <p>استكشف مجموعة متنوعة من المشاريع البرمجية والتطبيقات التي طورتها باستخدام أحدث التقنيات.</p>
       <div class="hero-btns">
-        <a href="https://github.com/FDJTS" class="cta" target="_blank">شاهد على GitHub</a>
+        <a href="https://github.com/FDJTS" class="cta pulse-animation" target="_blank">شاهد على GitHub</a>
+        <a href="tutorials.html" class="secondary">شاهد الشروحات</a>
       </div>
     </div>
     <div class="hero-img">
-      <img src="channels4_profile.jpg" alt="FDJTS">
+      <img src="channels4_profile.jpg" alt="FDJTS" class="floating-animation">
     </div>
   </header>
-  <main>
-    <section id="github-projects" style="text-align:center;">
-      <h2>مشاريع GitHub</h2>
+  <main role="main" aria-label="المحتوى الرئيسي">
+    <section id="github-projects" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="gradient-text">مشاريع GitHub</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">المشاريع التالية يتم تحميلها مباشرة من GitHub</p>
       <!-- المشاريع سيتم تحميلها تلقائيًا -->
     </section>
+    
+    <!-- قسم إحصائيات المشاريع -->
+    <section aria-labelledby="project-stats-title" style="background: var(--surface); padding: 40px; border-radius: 20px; margin: 40px 0;">
+      <h2 id="project-stats-title" class="gradient-text" style="text-align: center; margin-bottom: 30px;">إحصائيات المشاريع</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">15+</div>
+          <div style="color: var(--text);">مشروع مفتوح المصدر</div>
+        </div>
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">5+</div>
+          <div style="color: var(--text);">لغة برمجة</div>
+        </div>
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">100%</div>
+          <div style="color: var(--text);">مفتوح المصدر</div>
+        </div>
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">24/7</div>
+          <div style="color: var(--text);">متاح للجميع</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- قسم التقنيات المستخدمة -->
+    <section aria-labelledby="tech-title">
+      <h2 id="tech-title" class="gradient-text">التقنيات المستخدمة</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px;">
+        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
+          <div style="font-size: 1.5rem; margin-bottom: 8px;">🌐</div>
+          <div style="color: var(--main); font-weight: bold;">Web Development</div>
+        </div>
+        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
+          <div style="font-size: 1.5rem; margin-bottom: 8px;">🎮</div>
+          <div style="color: var(--main); font-weight: bold;">Game Development</div>
+        </div>
+        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
+          <div style="font-size: 1.5rem; margin-bottom: 8px;">🐧</div>
+          <div style="color: var(--main); font-weight: bold;">Linux Tools</div>
+        </div>
+        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
+          <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+          <div style="color: var(--main); font-weight: bold;">Performance</div>
+        </div>
+        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
+          <div style="font-size: 1.5rem; margin-bottom: 8px;">🔧</div>
+          <div style="color: var(--main); font-weight: bold;">Automation</div>
+        </div>
+        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
+          <div style="font-size: 1.5rem; margin-bottom: 8px;">📱</div>
+          <div style="color: var(--main); font-weight: bold;">Mobile Apps</div>
+        </div>
+      </div>
+    </section>
   </main>
+  
   <footer>
-    جميع الحقوق محفوظة &copy; FDJTS 2025
+    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
 </body>
 </html>

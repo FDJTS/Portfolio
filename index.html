@@ -3,14 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FDJTS - مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب. شروحات Arch Linux وGodot Engine مع مشاريع مفتوحة المصدر.">
+  <meta name="keywords" content="برمجة, تطوير ويب, Arch Linux, Godot Engine, شروحات برمجية, مشاريع مفتوحة المصدر, FDJTS">
+  <meta name="author" content="FDJTS">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fdjts.github.io/Portfolio/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fdjts.github.io/Portfolio/">
+  <meta property="og:title" content="FDJTS | مبرمج ومطور ويب">
+  <meta property="og:description" content="FDJTS - مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب. شروحات Arch Linux وGodot Engine مع مشاريع مفتوحة المصدر.">
+  <meta property="og:image" content="https://fdjts.github.io/Portfolio/channels4_profile.jpg">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:site_name" content="FDJTS Portfolio">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://fdjts.github.io/Portfolio/">
+  <meta property="twitter:title" content="FDJTS | مبرمج ومطور ويب">
+  <meta property="twitter:description" content="FDJTS - مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب. شروحات Arch Linux وGodot Engine مع مشاريع مفتوحة المصدر.">
+  <meta property="twitter:image" content="https://fdjts.github.io/Portfolio/channels4_profile.jpg">
+  <meta property="twitter:creator" content="@fdjts1">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "FDJTS",
+    "description": "مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب",
+    "url": "https://fdjts.github.io/Portfolio/",
+    "image": "https://fdjts.github.io/Portfolio/channels4_profile.jpg",
+    "sameAs": [
+      "https://github.com/FDJTS",
+      "https://www.youtube.com/@FDJTS",
+      "https://x.com/fdjts1",
+      "https://discord.com/invite/raU9FB2aeb"
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "Game Development",
+      "Arch Linux",
+      "Godot Engine",
+      "Programming Tutorials"
+    ],
+    "jobTitle": "Web Developer & Programmer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    }
+  }
+  </script>
   <title>FDJTS | الصفحة الرئيسية</title>
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0067b8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FDJTS">
+  <link rel="apple-touch-icon" href="141354010-removebg-preview.png">
 </head>
 <body>
-  <button class="toggle-theme"></button>
-  <nav>
+  <button class="toggle-theme" aria-label="تبديل الوضع الليلي/الفاتح"></button>
+  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html" class="active">الرئيسية</a></li>
       <li><a href="projects.html">مشاريعي</a></li>
@@ -19,65 +78,88 @@
     </ul>
   </nav>
   <header class="hero-header">
-    <div class="hero-content">
-      <span class="pre-title">شروحات ومشاريع برمجية</span>
-      <h1>مبرمج ومطور ويب</h1>
-      <p>أشارك مشاريعي وشروحات عملية و برمجيه و شروحات لينكس .</p>
+    <div class="hero-content fade-in">
+      <span class="pre-title gradient-text">شروحات ومشاريع برمجية</span>
+      <h1 class="gradient-text">مبرمج ومطور ويب</h1>
+      <p>أشارك مشاريعي وشروحات عملية و برمجيه و شروحات لينكس مع صور وفيديو وأكواد كاملة.</p>
       <div class="hero-btns">
-        <a href="projects.html" class="cta">شاهد مشاريعي</a>
+        <a href="projects.html" class="cta pulse-animation">شاهد مشاريعي</a>
         <a href="contact.html" class="secondary">تواصل معي</a>
       </div>
     </div>
     <div class="hero-img">
-      <img src="channels4_profile.jpg" alt="FDJTS">
+      <img src="channels4_profile.jpg" alt="صورة الملف الشخصي لـ FDJTS" class="floating-animation">
     </div>
   </header>
-  <main>
-    <section>
-      <h2>شروحاتي</h2>
+  <main role="main" aria-label="المحتوى الرئيسي">
+    <section aria-labelledby="tutorials-title">
+      <h2 id="tutorials-title">شروحاتي</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="Godot Project">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="شعار Godot Project">
           <h3>لعبة 3D باستخدام Godot وC++</h3>
           <p>مشروع لعبة ثلاثية الأبعاد مع كود وصور وفيديو شرح كامل.</p>
           <a href="tutorials-godot.html">شاهد الشرح الكامل</a>
         </div>
         <div class="project-card">
-          <img src="Archlinux-logo-standard-version.png" alt="Arch Linux">
+          <img src="Archlinux-logo-standard-version.png" alt="شعار Arch Linux">
           <h3>تثبيت Arch Linux بطريقتين</h3>
           <p>شرح عملي بالصور والفيديو لتثبيت Arch Linux بالطريقة اليدوية وarchinstall.</p>
           <a href="tutorials-archlinux.html">شاهد الشرح الكامل</a>
         </div>
       </div>
     </section>
-    <section>
-      <h2>حساباتي</h2>
+    <!-- قسم الإحصائيات -->
+    <section aria-labelledby="stats-title" style="background: var(--surface); padding: 40px; border-radius: 20px; margin: 40px 0;">
+      <h2 id="stats-title" class="gradient-text" style="text-align: center; margin-bottom: 30px;">إحصائياتي</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">15+</div>
+          <div style="color: var(--text);">مشروع مكتمل</div>
+        </div>
+        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">5+</div>
+          <div style="color: var(--text);">شروحات مفصلة</div>
+        </div>
+        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">3+</div>
+          <div style="color: var(--text);">سنوات خبرة</div>
+        </div>
+        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
+          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">100%</div>
+          <div style="color: var(--text);">رضا العملاء</div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="accounts-title">
+      <h2 id="accounts-title">حساباتي</h2>
       <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: center; justify-content: flex-start;">
-        <a href="https://www.youtube.com/@FDJTS" target="_blank" title="يوتيوب" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://www.youtube.com/@FDJTS" target="_blank" rel="noopener" title="يوتيوب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="شعار YouTube" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#c4302b;font-size:1.1rem;">يوتيوب</span>
         </a>
-        <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" title="ديسكورد" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" rel="noopener" title="ديسكورد" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="شعار Discord" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#5865f2;font-size:1.1rem;">سيرفر ديسكورد</span>
         </a>
-        <a href="https://x.com/fdjts1" target="_blank" title="تويتر" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://x.com/fdjts1" target="_blank" rel="noopener" title="تويتر" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="شعار Twitter/X" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#000;font-size:1.1rem;">تويتر</span>
         </a>
-        <!-- حساب جيت هب بنفس أبعاد ومكان باقي الحسابات -->
-        <a href="https://github.com/FDJTS" target="_blank" title="جيت هب" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://github.com/FDJTS" target="_blank" rel="noopener" title="جيت هب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="شعار GitHub" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#24292f;font-size:1.1rem;">جيت هب</span>
         </a>
       </div>
     </section>
     <!-- زر مصدر الموقع في أقصى الشمال -->
     <div style="position:fixed;left:24px;bottom:64px;z-index:100;">
-      <a href="https://github.com/FDJTS/Portfolio" target="_blank"
+      <a href="https://github.com/FDJTS/Portfolio" target="_blank" rel="noopener"
          style="background:#f5f5f5;border-radius:4px;padding:6px 16px;font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#24292f;font-size:1rem;text-decoration:none;box-shadow:0 2px 8px #0001;transition:background 0.2s;"
          onmouseover="this.style.background='#eaeaea'"
-         onmouseout="this.style.background='#f5f5f5'">
+         onmouseout="this.style.background='#f5f5f5'"
+         aria-label="مصدر الموقع على GitHub">
         Website Source Code
       </a>
     </div>

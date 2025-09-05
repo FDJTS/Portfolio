@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>شروحات | FDJTS</title>
+  <meta name="description" content="شروحات برمجية شاملة - Arch Linux، Godot Engine، تطوير الألعاب، والبرمجة مع أمثلة عملية وأكواد جاهزة.">
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0067b8">
 </head>
 <body>
   <button class="toggle-theme"></button>
-  <nav>
+  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  
+  <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="projects.html">مشاريعي</a></li>
@@ -18,26 +23,33 @@
       <li><a href="contact.html" class="cta">تواصل</a></li>
     </ul>
   </nav>
-  <header class="hero-header" style="min-height:220px;padding-bottom:40px;">
-    <div class="hero-content">
-      <span class="pre-title">شروحات عملية كاملة</span>
-      <h1>شروحات برمجية و شروحات لينكس مع صور وفيديو وأكواد</h1>
+  
+  <header class="hero-header" style="min-height:300px;padding-bottom:40px;">
+    <div class="hero-content fade-in">
+      <span class="pre-title gradient-text">شروحات عملية كاملة</span>
+      <h1 class="gradient-text">شروحات برمجية ولينكس مع صور وفيديو وأكواد</h1>
+      <p>تعلم البرمجة وتطوير الألعاب مع شروحات مفصلة وأمثلة عملية جاهزة للتطبيق.</p>
       <div class="hero-btns">
-        <a href="contact.html" class="cta">اطلب شرح جديد</a>
+        <a href="contact.html" class="cta pulse-animation">اطلب شرح جديد</a>
+        <a href="projects.html" class="secondary">شاهد مشاريعي</a>
       </div>
     </div>
     <div class="hero-img">
-      <img src="channels4_profile.jpg" alt="FDJTS">
+      <img src="channels4_profile.jpg" alt="FDJTS" class="floating-animation">
     </div>
   </header>
-  <main>
-    <section>
+  <main role="main" aria-label="المحتوى الرئيسي">
+    <section aria-labelledby="tutorials-title">
+      <h2 id="tutorials-title" class="gradient-text">الشروحات المتاحة</h2>
       <div class="tutorials-list">
         <div class="tutorial-card">
           <a href="tutorials-godot.html" style="text-decoration:none;color:inherit;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="Godot Logo">
             <h3>Godot + C++</h3>
-            <p>شرح لعبة 3D كاملة مع فيديو وصور وكود.</p>
+            <p>شرح لعبة 3D كاملة مع فيديو وصور وكود جاهز للتطبيق.</p>
+            <div style="margin-top: 15px; padding: 8px 16px; background: var(--surface2); border-radius: 8px; color: var(--main); font-weight: bold;">
+              شاهد الشرح الكامل
+            </div>
           </a>
         </div>
         <div class="tutorial-card">
@@ -45,13 +57,47 @@
             <img src="Archlinux-logo-standard-version.png" alt="Arch Linux Logo">
             <h3>تثبيت Arch Linux</h3>
             <p>شرح التثبيت بالطريقة اليدوية وarchinstall مع فيديو وصور وأوامر كاملة.</p>
+            <div style="margin-top: 15px; padding: 8px 16px; background: var(--surface2); border-radius: 8px; color: var(--main); font-weight: bold;">
+              شاهد الشرح الكامل
+            </div>
           </a>
         </div>
       </div>
     </section>
+    
+    <!-- قسم المميزات -->
+    <section aria-labelledby="features-title" style="background: var(--surface); padding: 40px; border-radius: 20px; margin: 40px 0;">
+      <h2 id="features-title" class="gradient-text" style="text-align: center; margin-bottom: 30px;">لماذا شروحاتي مميزة؟</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📹</div>
+          <h3 style="color: var(--main); margin-bottom: 10px;">فيديوهات توضيحية</h3>
+          <p style="color: var(--text);">شروحات مصورة خطوة بخطوة</p>
+        </div>
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💻</div>
+          <h3 style="color: var(--main); margin-bottom: 10px;">أكواد جاهزة</h3>
+          <p style="color: var(--text);">كود مكتوب ومختبر جاهز للاستخدام</p>
+        </div>
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🖼️</div>
+          <h3 style="color: var(--main); margin-bottom: 10px;">صور توضيحية</h3>
+          <p style="color: var(--text);">صور عالية الجودة لكل خطوة</p>
+        </div>
+        <div style="background: var(--surface2); padding: 20px; border-radius: 12px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🆓</div>
+          <h3 style="color: var(--main); margin-bottom: 10px;">مجاني بالكامل</h3>
+          <p style="color: var(--text);">جميع الشروحات متاحة مجاناً</p>
+        </div>
+      </div>
+    </section>
   </main>
+  
   <footer>
-    جميع الحقوق محفوظة &copy; FDJTS 2025
+    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
 </body>
 </html>
