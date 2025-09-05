@@ -42,6 +42,15 @@ body:not(.light) {
   --main: #00ffd5;
 }
 
+/* إصلاح مشكلة التبويبات */
+body.light nav {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body:not(.light) nav {
+  background: rgba(24, 28, 34, 0.9);
+}
+
 /* موجة SVG في الخلفية */
 body::before {
   content: "";
@@ -478,21 +487,12 @@ body:not(.light) .project-card p, body:not(.light) .tutorial-card p {
 
 /* Footer */
 footer {
-  background: var(--surface);
-  color: #888;
+  background: var(--surface2);
+  color: var(--main);
   text-align: center;
-  padding: 32px 0 16px 0;
-  border-radius: 0;
-  margin-top: 56px;
-  font-size: 1.12rem;
-  box-shadow: none;
-  border-top: 1px solid var(--surface2);
-  position: relative;
-  z-index: 2;
-}
-
-body:not(.light) footer {
-  color: #b7c3d1;
+  padding: 18px 0;
+  font-size: 1rem;
+  border-radius: 0 0 16px 16px;
 }
 
 /* زر الوضع الليلي/الفاتح */
@@ -541,125 +541,144 @@ body:not(.light) footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* مميزات متقدمة */
+/* تحسين زر تغيير اللغة */
+.toggle-lang {
+  box-shadow: 0 2px 8px #0002;
+  transition: background 0.2s, color 0.2s;
+}
+.toggle-lang:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* تحسين البطاقات */
+.project-card, .stat-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover, .stat-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 4px 16px #0001;
+}
+
+/* تحسين الصور داخل البطاقات */
+.project-card img, .stat-card img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+}
+
+/* تأثير متدرج للنصوص الهامة */
 .gradient-text {
-  background: linear-gradient(135deg, var(--main), var(--accent));
+  background: linear-gradient(90deg, var(--main), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+/* أنيميشن ظهور العناصر */
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
 }
 
-.floating-animation {
-  animation: float 3s ease-in-out infinite;
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background: var(--surface2);
+  color: var(--main);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 16px #0002;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  border: 1px solid var(--main);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* Scrollbar مخصص */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--surface2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main);
+  border-radius: 8px;
+}
+body:not(.light) ::-webkit-scrollbar-thumb {
+  background: var(--accent);
 }
 
-.pulse-animation {
-  animation: pulse 2s infinite;
+/* Loader */
+.loader {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border: 4px solid var(--surface2);
+  border-top: 4px solid var(--main);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  background: linear-gradient(135deg, var(--surface), var(--surface2));
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #0004;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
 }
 
-.fade-in {
+/* تحسينات للـ Focus */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid var(--main);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* أنيميشن للبطاقات عند الظهور */
+.project-card, .tutorial-card, .stat-card {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease;
+  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* تحسينات للروابط */
-a {
-  position: relative;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background: var(--main);
-  transition: width 0.3s ease;
-}
-
-a:hover::after {
-  width: 100%;
-}
-
-/* إزالة التأثير من الروابط داخل الكروت */
-.project-card a::after,
-.tutorial-card a::after,
-.cta::after {
+/* زر تثبيت التطبيق */
+.pwa-install-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s;
   display: none;
-}
-
-/* تحسينات للكروت في صفحة الشروحات */
-.tutorial-card a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.tutorial-card a:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* تحسينات للعناوين */
-h2.gradient-text {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-}
-
-/* تحسينات للقوائم */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  position: relative;
-  padding-right: 20px;
-  margin-bottom: 8px;
-}
-
-ul li::before {
-  content: "▶";
-  position: absolute;
-  right: 0;
-  color: var(--main);
-  font-size: 0.8rem;
-}
-
-/* تحسينات للروابط */
-a[target="_blank"] {
-  color: var(--main);
-  text-decoration: underline;
-}
-
-a[target="_blank"]:hover {
-  color: var(--accent);
 }
 
 /* Responsive */
@@ -734,5 +753,943 @@ a[target="_blank"]:hover {
   .toggle-lang {
     padding: 6px 16px;
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .toggle-lang {
+    top: 12px;
+    right: 12px;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+  }
+  .projects-grid, .accounts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .hero-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-img img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* تأثير ظل أقوى للبطاقات والأزرار */
+.project-card, .tutorial-card, .stat-card, .contact-form, .social-link {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.project-card:hover, .tutorial-card:hover, .stat-card:hover, .social-link:hover, .contact-form:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  transform: translateY(-6px) scale(1.04);
+}
+
+/* تأثير متدرج للأزرار */
+.cta, .submit-btn, .pulse-animation, .toggle-theme, .toggle-lang, .pwa-install-btn {
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.cta:hover, .submit-btn:hover, .pulse-animation:hover, .toggle-theme:hover, .toggle-lang:hover, .pwa-install-btn:hover {
+  background: linear-gradient(90deg, var(--accent), var(--main));
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transform: scale(1.07);
+}
+
+/* أنيميشن ظهور العناصر */
+.fade-in, .visible {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* أنيميشن للصور */
+img.floating-animation {
+  animation: floatImg 2.5s ease-in-out infinite alternate;
+}
+@keyframes floatImg {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-12px) scale(1.04); }
+}
+
+/* أنيميشن للزر النابض */
+.pulse-animation {
+  animation: pulseBtn 1.2s infinite alternate;
+}
+@keyframes pulseBtn {
+  0% { box-shadow: 0 0 0 0 var(--accent); }
+  100% { box-shadow: 0 0 16px 4px var(--accent); }
+}
+
+/* تحسين الـ Tooltip */
+.tooltip {
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--surface2), var(--main));
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 16px #0003;
+}
+
+/* تحسين الـ Modal */
+.modal-content {
+  background: linear-gradient(135deg, var(--surface), var(--surface2));
+  box-shadow: 0 8px 32px #0004;
+  border: none;
+}
+
+/* تحسين الـ Loader */
+.loader {
+  border: 4px solid var(--surface2);
+  border-top: 4px solid var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+
+/* تحسين الـ Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--surface2);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  border-radius: 10px;
+}
+
+/* تحسين الـ Focus */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--main);
+}
+
+/* تحسين الـ Hero/header والصور */
+.hero-header .hero-img img, .hero-header .hero-content {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  border-radius: 24px;
+  transition: box-shadow 0.3s;
+}
+.hero-header .hero-img img:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+  transform: scale(1.05);
+}
+
+/* تحسين استجابة الهواتف */
+@media (max-width: 900px) {
+  .projects-grid, .tutorials-list, .accounts-grid {
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+  .project-card, .tutorial-card, .stat-card {
+    min-width: 0 !important;
+    width: 100% !important;
+    margin: 0 auto 18px auto !important;
+  }
+  .hero-header {
+    flex-direction: column !important;
+    padding: 24px 4px 0 4px !important;
+  }
+  .hero-header .hero-img img {
+    width: 140px !important;
+    height: 140px !important;
+  }
+}
+
+/* تحسينات إضافية للهواتف */
+@media (max-width: 600px) {
+  .toggle-theme, .toggle-lang, .pwa-install-btn {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+    top: 8px !important;
+    right: 8px !important;
+    left: 8px !important;
+  }
+  .hero-header .hero-img img {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  .hero-header .hero-content h1 {
+    font-size: 1.2rem !important;
+  }
+  .project-card, .tutorial-card, .stat-card {
+    padding: 10px 2px !important;
+  }
+}
+
+/* ===== تحسينات متقدمة للمشاريع ===== */
+
+/* قسم البحث والفلترة */
+.search-filter-section {
+  background: var(--surface);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid var(--surface2);
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px 50px 15px 20px;
+  border: 2px solid var(--surface2);
+  border-radius: 25px;
+  font-size: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+  font-family: 'Cairo', Arial, sans-serif;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--main);
+  box-shadow: 0 0 0 3px rgba(0, 103, 184, 0.1);
+}
+
+.search-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--main);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: var(--accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid var(--surface2);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Cairo', Arial, sans-serif;
+  font-weight: 500;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--main);
+  color: white;
+  border-color: var(--main);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 103, 184, 0.3);
+}
+
+/* إحصائيات المشاريع */
+.projects-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, var(--surface), var(--surface2));
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid var(--surface2);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--main);
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* تحسين بطاقات المشاريع */
+.project-card {
+  background: var(--surface);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid var(--surface2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.project-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 103, 184, 0.9), rgba(255, 94, 94, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.view-demo-btn {
+  background: white;
+  color: var(--main);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Cairo', Arial, sans-serif;
+}
+
+.view-demo-btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.1);
+}
+
+.project-content {
+  padding: 25px;
+}
+
+.project-content h3 {
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.project-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+body:not(.light) .project-content p {
+  color: #b7c3d1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  background: var(--surface2);
+  color: var(--main);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--main);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: var(--main);
+  color: white;
+  transform: scale(1.05);
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.project-link {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.project-link.primary {
+  background: var(--main);
+  color: white;
+}
+
+.project-link.primary:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.project-link.secondary {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--surface2);
+}
+
+.project-link.secondary:hover {
+  background: var(--text);
+  color: var(--surface);
+  transform: translateY(-2px);
+}
+
+.project-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.project-stats .stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* قسم إحصائيات GitHub */
+.github-stats-section {
+  margin-top: 60px;
+  padding: 40px;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid var(--surface2);
+}
+
+.github-stats-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text);
+  font-size: 2rem;
+}
+
+.github-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.github-stat-card {
+  background: var(--surface2);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid var(--surface2);
+}
+
+.github-stat-card h3 {
+  margin-bottom: 20px;
+  color: var(--main);
+  font-size: 1.3rem;
+}
+
+.language-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.language-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.language-name {
+  min-width: 80px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.language-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.language-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.language-percent {
+  min-width: 40px;
+  text-align: right;
+  font-weight: bold;
+  color: var(--main);
+}
+
+.activity-chart {
+  height: 200px;
+  background: var(--bg);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-style: italic;
+}
+
+/* Modal للمشاريع */
+.project-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.project-modal.active {
+  display: flex;
+}
+
+.project-modal-content {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.project-modal-close:hover {
+  color: var(--accent);
+}
+
+/* تحسينات الاستجابة */
+@media (max-width: 768px) {
+  .search-filter-section {
+    padding: 20px;
+  }
+  
+  .filter-buttons {
+    justify-content: center;
+  }
+  
+  .projects-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .stat-item {
+    padding: 20px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .github-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-links {
+    flex-direction: column;
+  }
+  
+  .project-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 200px;
+  }
+  
+  .project-modal-content {
+    padding: 20px;
+    margin: 10px;
+  }
+}
+
+/* ===== قسم الإحصائيات المتقدمة ===== */
+.advanced-stats-section {
+  background: var(--surface);
+  padding: 50px;
+  border-radius: 25px;
+  margin: 50px 0;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+  border: 1px solid var(--surface2);
+  position: relative;
+  overflow: hidden;
+}
+
+.advanced-stats-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0, 103, 184, 0.05), transparent);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+.advanced-stat {
+  background: linear-gradient(135deg, var(--surface2), var(--surface));
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid var(--surface2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.advanced-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s;
+}
+
+.advanced-stat:hover::before {
+  left: 100%;
+}
+
+.advanced-stat:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+
+.stat-label {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.stat-progress {
+  width: 100%;
+  height: 6px;
+  background: var(--bg);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  border-radius: 3px;
+  transition: width 2s ease;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== قسم المهارات ===== */
+.skills-section {
+  background: var(--surface);
+  padding: 50px;
+  border-radius: 25px;
+  margin: 50px 0;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+  border: 1px solid var(--surface2);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.skill-category {
+  background: var(--surface2);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--surface2);
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.skill-category h3 {
+  color: var(--main);
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.skill-name {
+  min-width: 120px;
+  font-weight: 500;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.skill-bar {
+  flex: 1;
+  height: 10px;
+  background: var(--bg);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  border-radius: 5px;
+  transition: width 2s ease;
+  position: relative;
+  width: 0;
+}
+
+.skill-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.skill-percent {
+  min-width: 50px;
+  text-align: right;
+  font-weight: bold;
+  color: var(--main);
+  font-size: 1rem;
+}
+
+/* أنيميشن المهارات عند الظهور */
+.skill-fill.animate {
+  animation: fillSkill 2s ease forwards;
+}
+
+@keyframes fillSkill {
+  from { width: 0; }
+  to { width: var(--target-width); }
+}
+
+/* تحسينات الاستجابة للمهارات والإحصائيات */
+@media (max-width: 768px) {
+  .advanced-stats-section,
+  .skills-section {
+    padding: 30px 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+  
+  .skill-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .skill-name {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .skill-percent {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .advanced-stat {
+    padding: 25px;
+  }
+  
+  .skill-category {
+    padding: 25px;
   }
 }

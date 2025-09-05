@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تواصل معي | FDJTS</title>
-  <meta name="description" content="تواصل مع FDJTS - مبرمج ومطور ويب. أرسل رسالة أو تواصل عبر وسائل التواصل الاجتماعي.">
+  <meta name="description" content="تواصل مع FDJTS لأي استفسار أو تعاون برمجي.">
+  <meta name="keywords" content="تواصل, برمجة, مشاريع, FDJTS">
+  <title>تواصل | FDJTS</title>
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
@@ -183,8 +184,11 @@
   </style>
 </head>
 <body>
-  <button class="toggle-theme"></button>
-  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  <button class="toggle-lang" aria-label="English version"
+    onclick="window.location.href='contact-en.html'"
+    style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">
+    EN
+  </button>
   
   <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
@@ -201,29 +205,30 @@
   </header>
   
   <main>
-    <section>
-      <form class="contact-form" id="contactForm">
+    <section aria-labelledby="contact-title">
+      <h1 id="contact-title">تواصل معي</h1>
+      <form aria-label="نموذج التواصل" class="contact-form" id="contactForm">
         <div class="form-group">
           <label for="name">الاسم *</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" required aria-required="true">
         </div>
         
         <div class="form-group">
           <label for="email">البريد الإلكتروني *</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" required aria-required="true">
         </div>
         
         <div class="form-group">
           <label for="subject">الموضوع *</label>
-          <input type="text" id="subject" name="subject" required>
+          <input type="text" id="subject" name="subject" required aria-required="true">
         </div>
         
         <div class="form-group">
           <label for="message">الرسالة *</label>
-          <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
+          <textarea id="message" name="message" required aria-required="true" placeholder="اكتب رسالتك هنا..."></textarea>
         </div>
         
-        <button type="submit" class="submit-btn" id="submitBtn">
+        <button type="submit" class="submit-btn" id="submitBtn" aria-label="إرسال الرسالة">
           إرسال الرسالة
         </button>
         
@@ -259,7 +264,10 @@
   </main>
   
   <footer>
-    جميع الحقوق محفوظة &copy; FDJTS 2025
+    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
   
   <script>

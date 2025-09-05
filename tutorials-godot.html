@@ -2,8 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>شرح Godot + C++ | FDJTS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="شرح تطوير لعبة ثلاثية الأبعاد باستخدام Godot وC++ مع كود وصور وفيديو خطوة بخطوة.">
+  <meta name="keywords" content="Godot, تطوير ألعاب, شرح, C++, FDJTS">
+  <title>شرح Godot 3D | FDJTS</title>
   <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
   <style>
     pre.code-box {
@@ -54,7 +58,7 @@
 </head>
 <body>
   <button class="toggle-theme"></button>
-  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='tutorials-godot-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
   
   <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
@@ -73,7 +77,15 @@
     </div>
   </header>
   <main>
-    <section>
+    <section aria-labelledby="godot-title">
+      <h1 id="godot-title">شرح لعبة 3D باستخدام Godot وC++</h1>
+      <div class="project-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="شعار Godot" loading="lazy" aria-label="شعار Godot">
+        <h3>مشروع لعبة ثلاثية الأبعاد</h3>
+        <p>شرح كامل لتطوير لعبة 3D باستخدام Godot وC++ مع كود وصور وفيديو. يشمل جميع الخطوات من التصميم حتى البرمجة والتصدير.</p>
+        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener noreferrer">مشاهدة الفيديو</a>
+        <a href="https://github.com/FDJTS/godot-3d-game" target="_blank" rel="noopener noreferrer">كود المشروع</a>
+      </div>
       <h2>المتطلبات</h2>
       <ul>
         <li>Godot Engine 4.x</li>
@@ -185,7 +197,10 @@ REGISTER_GODOT_CLASS(Player)</code></pre>
     </section>
   </main>
   <footer>
-    جميع الحقوق محفوظة &copy; FDJTS 2025
+    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
   <script>
     function copyCode(btn) {
@@ -195,6 +210,5 @@ REGISTER_GODOT_CLASS(Player)</code></pre>
       setTimeout(() => btn.textContent = "نسخ الكود", 1200);
     }
   </script>
-  <script src="scripts.js"></script>
 </body>
 </html>

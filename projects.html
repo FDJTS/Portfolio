@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="مشاريع FDJTS البرمجية والمفتوحة المصدر.">
+  <meta name="keywords" content="مشاريع, برمجة, تطوير, Godot, Arch Linux, FDJTS">
   <title>مشاريعي | FDJTS</title>
-  <meta name="description" content="مشاريع FDJTS البرمجية - تطبيقات ويب، ألعاب، أدوات، ومكتبات مفتوحة المصدر متاحة على GitHub.">
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0067b8">
 </head>
 <body>
-  <button class="toggle-theme"></button>
-  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  <button class="toggle-lang" aria-label="English version"
+    onclick="window.location.href='projects-en.html'"
+    style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">
+    EN
+  </button>
   
   <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
@@ -39,62 +41,270 @@
     </div>
   </header>
   <main role="main" aria-label="المحتوى الرئيسي">
-    <section id="github-projects" aria-labelledby="projects-title">
-      <h2 id="projects-title" class="gradient-text">مشاريع GitHub</h2>
-      <p style="text-align: center; color: #666; margin-bottom: 30px;">المشاريع التالية يتم تحميلها مباشرة من GitHub</p>
-      <!-- المشاريع سيتم تحميلها تلقائيًا -->
-    </section>
-    
-    <!-- قسم إحصائيات المشاريع -->
-    <section aria-labelledby="project-stats-title" style="background: var(--surface); padding: 40px; border-radius: 20px; margin: 40px 0;">
-      <h2 id="project-stats-title" class="gradient-text" style="text-align: center; margin-bottom: 30px;">إحصائيات المشاريع</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">15+</div>
-          <div style="color: var(--text);">مشروع مفتوح المصدر</div>
+    <section aria-labelledby="projects-title">
+      <h1 id="projects-title">مشاريعي</h1>
+      
+      <!-- قسم البحث والفلترة -->
+      <div class="search-filter-section">
+        <div class="search-box">
+          <input type="text" id="projectSearch" placeholder="ابحث في المشاريع..." aria-label="البحث في المشاريع">
+          <button type="button" class="search-btn">🔍</button>
         </div>
-        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">5+</div>
-          <div style="color: var(--text);">لغة برمجة</div>
-        </div>
-        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">100%</div>
-          <div style="color: var(--text);">مفتوح المصدر</div>
-        </div>
-        <div style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">24/7</div>
-          <div style="color: var(--text);">متاح للجميع</div>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">الكل</button>
+          <button class="filter-btn" data-filter="web">تطوير ويب</button>
+          <button class="filter-btn" data-filter="game">تطوير ألعاب</button>
+          <button class="filter-btn" data-filter="linux">Linux</button>
+          <button class="filter-btn" data-filter="tutorial">شروحات</button>
         </div>
       </div>
-    </section>
-    
-    <!-- قسم التقنيات المستخدمة -->
-    <section aria-labelledby="tech-title">
-      <h2 id="tech-title" class="gradient-text">التقنيات المستخدمة</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px;">
-        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
-          <div style="font-size: 1.5rem; margin-bottom: 8px;">🌐</div>
-          <div style="color: var(--main); font-weight: bold;">Web Development</div>
+
+      <!-- إحصائيات المشاريع -->
+      <div class="projects-stats">
+        <div class="stat-item">
+          <span class="stat-number" id="totalProjects">0</span>
+          <span class="stat-label">مشروع إجمالي</span>
         </div>
-        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
-          <div style="font-size: 1.5rem; margin-bottom: 8px;">🎮</div>
-          <div style="color: var(--main); font-weight: bold;">Game Development</div>
+        <div class="stat-item">
+          <span class="stat-number" id="totalStars">0</span>
+          <span class="stat-label">نجمة على GitHub</span>
         </div>
-        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
-          <div style="font-size: 1.5rem; margin-bottom: 8px;">🐧</div>
-          <div style="color: var(--main); font-weight: bold;">Linux Tools</div>
+        <div class="stat-item">
+          <span class="stat-number" id="totalForks">0</span>
+          <span class="stat-label">Fork</span>
         </div>
-        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
-          <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
-          <div style="color: var(--main); font-weight: bold;">Performance</div>
+        <div class="stat-item">
+          <span class="stat-number" id="totalLanguages">0</span>
+          <span class="stat-label">لغة برمجة</span>
         </div>
-        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
-          <div style="font-size: 1.5rem; margin-bottom: 8px;">🔧</div>
-          <div style="color: var(--main); font-weight: bold;">Automation</div>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- مشروع Escape-Runner -->
+        <div class="project-card" data-category="game" data-tech="javascript,html,css">
+          <div class="project-image">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/javascript.svg" alt="Escape-Runner" loading="lazy">
+            <div class="project-overlay">
+              <button class="view-demo-btn" onclick="showProjectModal('escape-runner')">عرض التفاصيل</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Escape-Runner</h3>
+            <p>لعبة منصات مثيرة مع ميكانيكيات حركة متقدمة وتحديات متنوعة. مشروع JavaScript متكامل مع رسوميات جميلة.</p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Game Development</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/FDJTS/Escape-Runner" target="_blank" class="project-link primary">GitHub</a>
+              <a href="https://fdjts.netlify.app/" target="_blank" class="project-link secondary">عرض الموقع</a>
+            </div>
+            <div class="project-stats">
+              <span class="stat">⭐ 5</span>
+              <span class="stat">🍴 2</span>
+              <span class="stat">👁️ 30</span>
+            </div>
+          </div>
         </div>
-        <div style="background: var(--surface); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--surface2);">
-          <div style="font-size: 1.5rem; margin-bottom: 8px;">📱</div>
-          <div style="color: var(--main); font-weight: bold;">Mobile Apps</div>
+
+        <!-- مشروع Spaceships -->
+        <div class="project-card" data-category="game" data-tech="html,css,javascript">
+          <div class="project-image">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/html5.svg" alt="Spaceships Game" loading="lazy">
+            <div class="project-overlay">
+              <button class="view-demo-btn" onclick="showProjectModal('spaceships')">عرض التفاصيل</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Legendary Spaceships Game</h3>
+            <p>لعبة مركبات فضائية أسطورية مع رسوميات متطورة وتأثيرات بصرية مذهلة. مشروع HTML5 مع JavaScript متقدم.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Canvas</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/FDJTS/Spaceships." target="_blank" class="project-link primary">GitHub</a>
+              <a href="#" class="project-link secondary">Demo</a>
+            </div>
+            <div class="project-stats">
+              <span class="stat">⭐ 3</span>
+              <span class="stat">🍴 1</span>
+              <span class="stat">👁️ 20</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- مشروع Portfolio -->
+        <div class="project-card" data-category="web" data-tech="html,css,js">
+          <div class="project-image">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/html5.svg" alt="Portfolio Website" loading="lazy">
+            <div class="project-overlay">
+              <button class="view-demo-btn" onclick="showProjectModal('portfolio')">عرض التفاصيل</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Portfolio Website</h3>
+            <p>موقع شخصي متقدم مع تصميم responsive وتأثيرات بصرية متطورة. يتضمن نظام PWA وأنيميشن متقدم.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">PWA</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/FDJTS/Portfolio" target="_blank" class="project-link primary">GitHub</a>
+              <a href="https://fdjts.netlify.app/" target="_blank" class="project-link secondary">عرض الموقع</a>
+            </div>
+            <div class="project-stats">
+              <span class="stat">⭐ 2</span>
+              <span class="stat">🍴 1</span>
+              <span class="stat">👁️ 15</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- مشروع Infiniware -->
+        <div class="project-card" data-category="web" data-tech="html,css,bootstrap">
+          <div class="project-image">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/bootstrap.svg" alt="Infiniware" loading="lazy">
+            <div class="project-overlay">
+              <button class="view-demo-btn" onclick="showProjectModal('infiniware')">عرض التفاصيل</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Infiniware</h3>
+            <p>موقع تجريبي لبيع مكونات أجهزة الكمبيوتر مع تصميم احترافي وواجهة مستخدم متطورة باستخدام Bootstrap.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Bootstrap</span>
+              <span class="tech-tag">E-commerce</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/FDJTS/Infiniware" target="_blank" class="project-link primary">GitHub</a>
+              <a href="#" class="project-link secondary">Demo</a>
+            </div>
+            <div class="project-stats">
+              <span class="stat">⭐ 1</span>
+              <span class="stat">🍴 0</span>
+              <span class="stat">👁️ 10</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- مشروع Arch Linux Tutorial -->
+        <div class="project-card" data-category="linux" data-tech="bash,arch,linux">
+          <div class="project-image">
+            <img src="Archlinux-logo-standard-version.png" alt="Arch Linux Tutorial" loading="lazy">
+            <div class="project-overlay">
+              <button class="view-demo-btn" onclick="showProjectModal('arch-tutorial')">عرض التفاصيل</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Arch Linux Tutorial</h3>
+            <p>شروحات مفصلة لتثبيت وإعداد Arch Linux مع نصائح وحيل متقدمة للمطورين والمستخدمين المتقدمين.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Bash</span>
+              <span class="tech-tag">Arch Linux</span>
+              <span class="tech-tag">System Admin</span>
+              <span class="tech-tag">Tutorial</span>
+            </div>
+            <div class="project-links">
+              <a href="tutorials-archlinux.html" class="project-link primary">شاهد الشرح</a>
+              <a href="https://www.youtube.com/@FDJTS" target="_blank" class="project-link secondary">YouTube</a>
+            </div>
+            <div class="project-stats">
+              <span class="stat">⭐ 8</span>
+              <span class="stat">🍴 3</span>
+              <span class="stat">👁️ 50</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- مشروع Godot Game Development -->
+        <div class="project-card" data-category="game" data-tech="godot,c++,gdscript">
+          <div class="project-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="Godot Game Development" loading="lazy">
+            <div class="project-overlay">
+              <button class="view-demo-btn" onclick="showProjectModal('godot-development')">عرض التفاصيل</button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Godot Game Development</h3>
+            <p>مشاريع تطوير ألعاب باستخدام Godot Engine مع شروحات مفصلة وتقنيات متقدمة في البرمجة والتصميم.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Godot Engine</span>
+              <span class="tech-tag">GDScript</span>
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">Game Design</span>
+            </div>
+            <div class="project-links">
+              <a href="tutorials-godot.html" class="project-link primary">شاهد الشرح</a>
+              <a href="https://www.youtube.com/@FDJTS" target="_blank" class="project-link secondary">YouTube</a>
+            </div>
+            <div class="project-stats">
+              <span class="stat">⭐ 12</span>
+              <span class="stat">🍴 5</span>
+              <span class="stat">👁️ 80</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- قسم GitHub Stats -->
+      <div class="github-stats-section">
+        <h2>إحصائيات GitHub</h2>
+        <div class="github-stats-grid">
+          <div class="github-stat-card">
+            <h3>أكثر اللغات استخداماً</h3>
+            <div class="language-stats" id="languageStats">
+              <div class="language-item">
+                <span class="language-name">JavaScript</span>
+                <div class="language-bar">
+                  <div class="language-fill" style="width: 35%"></div>
+                </div>
+                <span class="language-percent">35%</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">Python</span>
+                <div class="language-bar">
+                  <div class="language-fill" style="width: 25%"></div>
+                </div>
+                <span class="language-percent">25%</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">C++</span>
+                <div class="language-bar">
+                  <div class="language-fill" style="width: 20%"></div>
+                </div>
+                <span class="language-percent">20%</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">Bash</span>
+                <div class="language-bar">
+                  <div class="language-fill" style="width: 15%"></div>
+                </div>
+                <span class="language-percent">15%</span>
+              </div>
+              <div class="language-item">
+                <span class="language-name">HTML/CSS</span>
+                <div class="language-bar">
+                  <div class="language-fill" style="width: 5%"></div>
+                </div>
+                <span class="language-percent">5%</span>
+              </div>
+            </div>
+          </div>
+          <div class="github-stat-card">
+            <h3>نشاط GitHub</h3>
+            <div class="activity-chart" id="activityChart">
+              <!-- سيتم ملؤها بـ JavaScript -->
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,22 +2,105 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>أسهل طريقة لتثبيت Arch Linux | FDJTS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="شرح تثبيت Arch Linux خطوة بخطوة بالطريقة اليدوية وarchinstall مع صور وفيديو ومصادر قوية.">
+  <meta name="keywords" content="Arch Linux, لينكس, تثبيت, شرح, توزيعات, fdjts, linux install, archinstall">
+  <title>شرح تثبيت Arch Linux | FDJTS</title>
   <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
   <style>
-    pre.code-box {
-      position: relative;
-      margin-bottom: 18px;
-      padding-top: 2.5em;
-      background: var(--surface2);
-      border-radius: 10px;
+    /* تحسين مظهر البطاقات */
+    .project-card, .tutorial-card, .stat-card {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      border-radius: 18px;
+      transition: box-shadow 0.3s, transform 0.3s;
+      background: var(--surface);
       border: 1px solid var(--surface2);
+      margin-bottom: 18px;
+      padding: 28px 14px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      transform: translateY(-6px) scale(1.04);
+      background: linear-gradient(90deg, var(--surface2), var(--surface));
+    }
+    .project-card img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      background: #f7fafd;
+      box-shadow: 0 2px 8px #0001;
+      transition: transform 0.3s;
+    }
+    .project-card:hover img {
+      transform: scale(1.09);
+    }
+    .project-card h3 {
+      color: var(--main);
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .project-card p {
+      color: #4a5a6a;
+      font-size: 0.97rem;
+      margin-bottom: 10px;
+    }
+    .project-card a {
+      background: linear-gradient(90deg, var(--main), var(--accent));
+      color: #fff !important;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .project-card a:hover {
+      background: linear-gradient(90deg, var(--accent), var(--main));
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      transform: scale(1.07);
+    }
+
+    /* تحسين الكود */
+    .code-box {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 18px auto;
+      background: var(--surface2);
+      border-radius: 14px;
+      border: 1px solid var(--surface2);
+      overflow-x: auto;
+      box-shadow: 0 4px 18px #0001;
+      padding: 0;
+      position: relative;
+    }
+    .code-box pre, .code-box code {
+      background: transparent;
+      color: var(--main);
+      font-size: 1.1rem;
+      font-family: 'Cairo', 'Consolas', monospace;
+      padding: 18px 18px 10px 18px;
+      margin: 0;
+      border-radius: 0 0 14px 14px;
+      line-height: 2;
+      text-align: left;
+      direction: ltr;
+      word-break: break-all;
     }
     .copy-btn {
       position: absolute;
-      left: 12px;
-      top: 8px;
+      left: 18px;
+      top: 10px;
       background: var(--main);
       color: #fff;
       border: none;
@@ -27,35 +110,143 @@
       font-weight: bold;
       cursor: pointer;
       z-index: 2;
-      transition: none;
+      transition: background 0.2s;
     }
-    pre code {
-      font-size: 1.13rem;
-      font-family: 'Cairo', Arial, sans-serif;
-      direction: ltr;
-      user-select: all;
-      background: transparent;
+    .copy-btn:hover {
+      background: var(--accent);
+    }
+    /* تحسين توزيع البطاقات */
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .project-card {
+      flex: 1 1 320px;
+      min-width: 260px;
+      max-width: 420px;
+      margin: 0 auto 18px auto;
+      padding: 24px 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      border-radius: 18px;
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      text-align: center;
+      transition: box-shadow 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      background: #f7fafd;
+      box-shadow: 0 2px 8px #0001;
+      transition: transform 0.3s;
+    }
+    .project-card h3 {
       color: var(--main);
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .project-card p {
+      color: #4a5a6a;
+      font-size: 0.97rem;
+      margin-bottom: 10px;
+    }
+    .project-card a {
+      background: linear-gradient(90deg, var(--main), var(--accent));
+      color: #fff !important;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .project-card a:hover {
+      background: linear-gradient(90deg, var(--accent), var(--main));
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      transform: scale(1.07);
+    }
+    /* استجابة قوية للهواتف */
+    @media (max-width: 900px) {
+      .projects-grid {
+        flex-direction: column !important;
+        gap: 18px !important;
+        align-items: center !important;
+      }
+      .project-card {
+        min-width: 0 !important;
+        width: 98vw !important;
+        max-width: 98vw !important;
+        margin: 0 auto 18px auto !important;
+        padding: 12px 2px !important;
+      }
+      .project-card img {
+        width: 60px !important;
+        height: 60px !important;
+      }
+      .code-box {
+        max-width: 98vw !important;
+        margin: 12px auto !important;
+      }
+      .code-box pre, .code-box code {
+        font-size: 0.95rem !important;
+        padding: 10px !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero-header .hero-img img {
+        width: 90px !important;
+        height: 90px !important;
+      }
+      .hero-header .hero-content h1 {
+        font-size: 1.2rem !important;
+      }
+      .project-card {
+        padding: 10px 2px !important;
+      }
+      .code-box pre code {
+        font-size: 0.95rem !important;
+        padding: 10px !important;
+      }
+    }
+    /* تحسين الـ Tooltip */
+    .tooltip {
+      font-size: 1rem;
+      padding: 10px 18px;
       border-radius: 10px;
-      padding: 18px;
-      display: block;
-      margin-bottom: 0;
-      line-height: 2.1;
-      word-break: break-all;
-      margin-top: 0;
+      background: linear-gradient(90deg, var(--surface2), var(--main));
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 16px #0003;
     }
-    body:not(.light) pre code {
-      color: #00ffd5;
+    /* أنيميشن ظهور العناصر */
+    .fade-in, .visible {
+      opacity: 0;
+      transform: translateY(40px) scale(0.97);
+      transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
     }
-    body.light pre code {
-      color: #0067b8;
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
     }
   </style>
 </head>
 <body>
-  <button class="toggle-theme"></button>
-  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
-  
+  <button class="toggle-theme" aria-label="تبديل الوضع الليلي/الفاتح"></button>
+  <button class="toggle-lang" aria-label="English version"
+    onclick="window.location.href='tutorials-archlinux-en.html'">
+    EN
+  </button>
   <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
@@ -64,58 +255,110 @@
       <li><a href="contact.html" class="cta">تواصل</a></li>
     </ul>
   </nav>
-  <header class="hero-header" style="min-height:200px;padding:40px 0;text-align:center;">
+  <header class="hero-header">
     <div class="hero-content fade-in">
-      <span class="pre-title gradient-text">شرح شامل</span>
-      <h1 class="gradient-text">تثبيت Arch Linux بطريقتين</h1>
-      <p>شرح عملي بالصور والفيديو والأوامر خطوة بخطوة مع أمثلة عملية</p>
+      <span class="pre-title gradient-text">شرح توزيعة Arch Linux</span>
+      <h1 class="gradient-text">تثبيت Arch Linux خطوة بخطوة</h1>
+      <p>دليل شامل لتثبيت Arch Linux بالطريقة اليدوية و باستخدام archinstall، مع صور وفيديو ومصادر رسمية وأكواد جاهزة.</p>
+      <div class="hero-btns">
+        <a href="#steps" class="cta pulse-animation">ابدأ الشرح</a>
+        <a href="#resources" class="secondary">مصادر ودعم</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="Archlinux-logo-standard-version.png" alt="شعار Arch Linux" class="floating-animation" loading="lazy">
     </div>
   </header>
-  <main role="main" aria-label="المحتوى الرئيسي">
-    <section>
-      <h2>المتطلبات</h2>
-      <ul>
-        <li>فلاشة USB 4GB+</li>
-        <li>تحميل <a href="https://archlinux.org/download/" target="_blank">Arch Linux ISO</a></li>
-        <li>برنامج حرق مثل Rufus أو balenaEtcher</li>
-      </ul>
-      <img src="Archlinux-logo-standard-version.png" alt="Arch Linux Logo" style="width:800px;display:block;margin:18px auto 18px auto;">
-      <h2>شاشة BIOS (Boot Option)</h2>
-      <img src="d0pcoyyfwsk61.jpg" alt="Gigabyte BIOS Boot Option" style="width:100%;border-radius:12px;margin:18px 0;">
-      <h2>شاشة إقلاع Arch Linux من الفلاشة</h2>
-      <img src="arch-script-e1560162541576.webp" alt="Arch Linux Booted from USB" style="width:100%;border-radius:12px;margin:18px 0;">
-      <h2>الطريقة الأولى: archinstall (الأسهل)</h2>
-      <div style="margin-bottom:8px;font-weight:bold;color:#ffaa00;">
-        بعد الإقلاع من الفلاشة، شغل الأمر التالي ثم اتبع الخطوات التفاعلية (اختيار اللغة، القرص، المستخدم...).
-        <br>
-        <span style="color:#fff;font-weight:normal;">سيتم تفعيل الإنترنت تلقائيًا إذا كان لديك كابل أو شبكة واي فاي مدعومة.</span>
+  <main>
+    <section id="steps" aria-labelledby="steps-title">
+      <h2 id="steps-title">الخطوات العملية</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <img src="arch-script-e1560162541576.webp" alt="Arch Script" loading="lazy">
+          <h3>تحميل Arch Linux</h3>
+          <p>اذهب إلى الموقع الرسمي وحمّل آخر نسخة ISO.</p>
+          <a href="https://archlinux.org/download/" target="_blank" rel="noopener noreferrer">Arch Linux Download</a>
+        </div>
+        <div class="project-card fade-in">
+          <img src="ai30.webp" alt="Arch Install" loading="lazy">
+          <h3>التثبيت اليدوي</h3>
+          <p>شرح كامل للأوامر الأساسية من تقسيم القرص حتى تثبيت النظام.</p>
+          <a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank" rel="noopener noreferrer">Arch Wiki: Manual Install</a>
+        </div>
+        <div class="project-card fade-in">
+          <img src="archinstall-1.jpg" alt="Archinstall" loading="lazy">
+          <h3>استخدام archinstall</h3>
+          <p>طريقة التثبيت التلقائي باستخدام أداة archinstall الرسمية.</p>
+          <a href="https://archinstall.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">Archinstall Docs</a>
+        </div>
+        <div class="project-card fade-in">
+          <img src="Grub_menu.jpeg" alt="Grub Menu" loading="lazy">
+          <h3>تثبيت محمل الإقلاع (GRUB)</h3>
+          <p>شرح إعداد GRUB وتفعيله بعد التثبيت.</p>
+          <a href="https://wiki.archlinux.org/title/GRUB" target="_blank" rel="noopener noreferrer">Arch Wiki: GRUB</a>
+        </div>
+        <div class="project-card fade-in">
+          <img src="d0pcoyyfwsk61.jpg" alt="Arch Desktop" loading="lazy">
+          <h3>تثبيت واجهة سطح المكتب</h3>
+          <p>شرح تثبيت GNOME/KDE أو أي واجهة أخرى.</p>
+          <a href="https://wiki.archlinux.org/title/Desktop_environment" target="_blank" rel="noopener noreferrer">Arch Wiki: Desktop Environments</a>
+        </div>
+        <div class="project-card fade-in">
+          <img src="channels4_profile.jpg" alt="شرح فيديو" loading="lazy">
+          <h3>فيديو شرح كامل</h3>
+          <p>شاهد فيديو عملي لكل الخطوات من البداية للنهاية.</p>
+          <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener noreferrer">مشاهدة الفيديو</a>
+        </div>
       </div>
-      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>archinstall</code></pre>
-      <div>
-        <b>ملاحظات:</b>
-        <ul>
-          <li>اختر <b>Network configuration</b> أثناء التثبيت لتفعيل الإنترنت.</li>
-          <li>يمكنك تثبيت برامج إضافية من قائمة <b>Additional packages</b> أثناء التثبيت.</li>
-        </ul>
+    </section>
+    <section id="resources" aria-labelledby="resources-title">
+      <h2 id="resources-title">مصادر ودعم إضافي</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <h3>Arch Wiki</h3>
+          <p>المصدر الرسمي لكل شروحات Arch Linux.</p>
+          <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreferrer">Arch Wiki</a>
+        </div>
+        <div class="project-card fade-in">
+          <h3>مجتمع Arch العربي</h3>
+          <p>انضم لمجتمع Arch Linux العربي على Discord للدعم والمساعدة.</p>
+          <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" rel="noopener noreferrer">سيرفر Discord</a>
+        </div>
+        <div class="project-card fade-in">
+          <h3>كود التثبيت الجاهز</h3>
+          <p>كود Bash لتثبيت Arch تلقائياً.</p>
+          <a href="https://github.com/FDJTS/archlinux-guide" target="_blank" rel="noopener noreferrer">GitHub: Arch Install Script</a>
+        </div>
       </div>
-      <h2>شاشة تثبيت Arch (archinstall)</h2>
-      <img src="ai30.webp" alt="Arch Install archinstall" style="width:100%;border-radius:12px;margin:18px 0;">
-      <h2>الطريقة اليدوية الكاملة (كل أمر منفصل مع شرح واضح)</h2>
-      <div style="margin-bottom:8px;font-weight:bold;color:#ffaa00;">نفذ الأوامر التالية بالترتيب بعد الإقلاع من الفلاشة:</div>
-
-      <div>تغيير خط التيرمنال (مثال: خط أكبر وأكثر وضوحًا)</div>
-      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>setfont ter- 132b</code></pre>
-
-      <div>تفعيل الإنترنت السلكي تلقائيًا</div>
-      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>systemctl start dhcpcd</code></pre>
-
-      <div>أو تفعيل الإنترنت اللاسلكي (واي فاي)</div>
-      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>wifi-menu</code></pre>
-
-      <div>تأكد من الاتصال بالإنترنت</div>
-      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>ping archlinux.org</code></pre>
-
-      <div>تحديث الساعة تلقائيًا</div>
+    </section>
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title">أسئلة شائعة</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <h3>هل التثبيت اليدوي صعب؟</h3>
+          <p>التثبيت اليدوي يحتاج معرفة بالأوامر، لكن الشرح والفيديو يسهل العملية خطوة بخطوة.</p>
+        </div>
+        <div class="project-card fade-in">
+          <h3>هل يمكن تثبيت Arch على أي جهاز؟</h3>
+          <p>نعم، Arch يدعم معظم الأجهزة الحديثة، فقط تأكد من توافق العتاد.</p>
+        </div>
+        <div class="project-card fade-in">
+          <h3>كيف أحصل على دعم إذا واجهت مشكلة؟</h3>
+          <p>استخدم Arch Wiki أو مجتمع Arch العربي أو تواصل معي عبر صفحة التواصل.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+  <!-- Loader و Modal ديناميكي -->
+  <!-- ...existing code for JS and PWA... -->
+</body>
+</html>
       <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>timedatectl set-ntp true</code></pre>
 
       <div>تحديث قاعدة بيانات الحزم (اختياري قبل التقسيم)</div>
@@ -226,7 +469,10 @@ reboot</code></pre>
     </section>
   </main>
   <footer>
-    جميع الحقوق محفوظة &copy; FDJTS 2025
+    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
   <script>
     function copyCode(btn) {
@@ -236,7 +482,5 @@ reboot</code></pre>
       setTimeout(() => btn.textContent = "نسخ الكود", 1200);
     }
   </script>
-  <script src="scripts.js"></script>
 </body>
-</html>
 </html>
