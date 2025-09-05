@@ -68,7 +68,11 @@
 </head>
 <body>
   <button class="toggle-theme" aria-label="تبديل الوضع الليلي/الفاتح"></button>
-  <button class="toggle-lang" aria-label="English version" onclick="window.location.href='index-en.html'" style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">EN</button>
+  <button class="toggle-lang" aria-label="English version"
+    onclick="window.location.href='index-en.html'"
+    style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">
+    EN
+  </button>
   <nav aria-label="القائمة الرئيسية" role="navigation">
     <ul>
       <li><a href="index.html" class="active">الرئيسية</a></li>
@@ -88,7 +92,7 @@
       </div>
     </div>
     <div class="hero-img">
-      <img src="channels4_profile.jpg" alt="صورة الملف الشخصي لـ FDJTS" class="floating-animation">
+      <img src="channels4_profile.jpg" alt="صورة الملف الشخصي لـ FDJTS" class="floating-animation" aria-label="صورة الملف الشخصي" loading="lazy">
     </div>
   </header>
   <main role="main" aria-label="المحتوى الرئيسي">
@@ -96,38 +100,212 @@
       <h2 id="tutorials-title">شروحاتي</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="شعار Godot Project">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="شعار Godot Project" loading="lazy">
           <h3>لعبة 3D باستخدام Godot وC++</h3>
           <p>مشروع لعبة ثلاثية الأبعاد مع كود وصور وفيديو شرح كامل.</p>
           <a href="tutorials-godot.html">شاهد الشرح الكامل</a>
         </div>
         <div class="project-card">
-          <img src="Archlinux-logo-standard-version.png" alt="شعار Arch Linux">
+          <img src="Archlinux-logo-standard-version.png" alt="شعار Arch Linux" loading="lazy">
           <h3>تثبيت Arch Linux بطريقتين</h3>
           <p>شرح عملي بالصور والفيديو لتثبيت Arch Linux بالطريقة اليدوية وarchinstall.</p>
           <a href="tutorials-archlinux.html">شاهد الشرح الكامل</a>
         </div>
       </div>
     </section>
-    <!-- قسم الإحصائيات -->
-    <section aria-labelledby="stats-title" style="background: var(--surface); padding: 40px; border-radius: 20px; margin: 40px 0;">
-      <h2 id="stats-title" class="gradient-text" style="text-align: center; margin-bottom: 30px;">إحصائياتي</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">15+</div>
-          <div style="color: var(--text);">مشروع مكتمل</div>
+    <!-- قسم الإحصائيات المتقدمة -->
+    <section aria-labelledby="stats-title" class="advanced-stats-section">
+      <h2 id="stats-title" class="gradient-text">إحصائياتي</h2>
+      <div class="stats-grid">
+        <div class="stat-card advanced-stat">
+          <div class="stat-icon">🚀</div>
+          <div class="stat-number" id="homeTotalProjects">0</div>
+          <div class="stat-label">مشروع مكتمل</div>
+          <div class="stat-progress">
+            <div class="progress-bar" style="width: 85%"></div>
+          </div>
         </div>
-        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">5+</div>
-          <div style="color: var(--text);">شروحات مفصلة</div>
+        <div class="stat-card advanced-stat">
+          <div class="stat-icon">📚</div>
+          <div class="stat-number" id="homeTotalTutorials">0</div>
+          <div class="stat-label">شروحات مفصلة</div>
+          <div class="stat-progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
         </div>
-        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--main); margin-bottom: 8px;">3+</div>
-          <div style="color: var(--text);">سنوات خبرة</div>
+        <div class="stat-card advanced-stat">
+          <div class="stat-icon">⏰</div>
+          <div class="stat-number" id="homeExperience">0</div>
+          <div class="stat-label">سنوات خبرة</div>
+          <div class="stat-progress">
+            <div class="progress-bar" style="width: 60%"></div>
+          </div>
         </div>
-        <div class="stat-card" style="background: var(--surface2); padding: 20px; border-radius: 12px;">
-          <div style="font-size: 2rem; font-weight: bold; color: var(--accent); margin-bottom: 8px;">100%</div>
-          <div style="color: var(--text);">رضا العملاء</div>
+        <div class="stat-card advanced-stat">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-number" id="homeSatisfaction">0</div>
+          <div class="stat-label">رضا العملاء</div>
+          <div class="stat-progress">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="stat-card advanced-stat">
+          <div class="stat-icon">👥</div>
+          <div class="stat-number" id="homeFollowers">0</div>
+          <div class="stat-label">متابع</div>
+          <div class="stat-progress">
+            <div class="progress-bar" style="width: 75%"></div>
+          </div>
+        </div>
+        <div class="stat-card advanced-stat">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-number" id="homeSuccessRate">0</div>
+          <div class="stat-label">معدل النجاح</div>
+          <div class="stat-progress">
+            <div class="progress-bar" style="width: 95%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم المهارات -->
+    <section aria-labelledby="skills-title" class="skills-section">
+      <h2 id="skills-title" class="gradient-text">مهاراتي التقنية</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>تطوير الويب</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span class="skill-name">HTML5</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="95"></div>
+              </div>
+              <span class="skill-percent">95%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">CSS3</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="90"></div>
+              </div>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="85"></div>
+              </div>
+              <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Node.js</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="80"></div>
+              </div>
+              <span class="skill-percent">80%</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>تطوير الألعاب</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span class="skill-name">Godot Engine</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="88"></div>
+              </div>
+              <span class="skill-percent">88%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">C++</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="75"></div>
+              </div>
+              <span class="skill-percent">75%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">GDScript</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="90"></div>
+              </div>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">3D Graphics</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="70"></div>
+              </div>
+              <span class="skill-percent">70%</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>أنظمة التشغيل</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span class="skill-name">Linux</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="92"></div>
+              </div>
+              <span class="skill-percent">92%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Arch Linux</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="95"></div>
+              </div>
+              <span class="skill-percent">95%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Bash Scripting</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="85"></div>
+              </div>
+              <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">System Admin</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="80"></div>
+              </div>
+              <span class="skill-percent">80%</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>لغات البرمجة</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="85"></div>
+              </div>
+              <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="90"></div>
+              </div>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">C++</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="75"></div>
+              </div>
+              <span class="skill-percent">75%</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Bash</span>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="88"></div>
+              </div>
+              <span class="skill-percent">88%</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -135,27 +313,27 @@
     <section aria-labelledby="accounts-title">
       <h2 id="accounts-title">حساباتي</h2>
       <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: center; justify-content: flex-start;">
-        <a href="https://www.youtube.com/@FDJTS" target="_blank" rel="noopener" title="يوتيوب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="شعار YouTube" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://www.youtube.com/@FDJTS" target="_blank" rel="noopener noreferrer" title="يوتيوب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="شعار YouTube" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#c4302b;font-size:1.1rem;">يوتيوب</span>
         </a>
-        <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" rel="noopener" title="ديسكورد" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="شعار Discord" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" rel="noopener noreferrer" title="ديسكورد" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="شعار Discord" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#5865f2;font-size:1.1rem;">سيرفر ديسكورد</span>
         </a>
-        <a href="https://x.com/fdjts1" target="_blank" rel="noopener" title="تويتر" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="شعار Twitter/X" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://x.com/fdjts1" target="_blank" rel="noopener noreferrer" title="تويتر" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="شعار Twitter/X" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#000;font-size:1.1rem;">تويتر</span>
         </a>
-        <a href="https://github.com/FDJTS" target="_blank" rel="noopener" title="جيت هب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="شعار GitHub" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;">
+        <a href="https://github.com/FDJTS" target="_blank" rel="noopener noreferrer" title="جيت هب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="شعار GitHub" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
           <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#24292f;font-size:1.1rem;">جيت هب</span>
         </a>
       </div>
     </section>
     <!-- زر مصدر الموقع في أقصى الشمال -->
     <div style="position:fixed;left:24px;bottom:64px;z-index:100;">
-      <a href="https://github.com/FDJTS/Portfolio" target="_blank" rel="noopener"
+      <a href="https://github.com/FDJTS/Portfolio" target="_blank" rel="noopener noreferrer"
          style="background:#f5f5f5;border-radius:4px;padding:6px 16px;font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#24292f;font-size:1rem;text-decoration:none;box-shadow:0 2px 8px #0001;transition:background 0.2s;"
          onmouseover="this.style.background='#eaeaea'"
          onmouseout="this.style.background='#f5f5f5'"
