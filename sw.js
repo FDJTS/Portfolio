@@ -48,32 +48,35 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-// اعتراض الطلبات
+// اعتراض الطلبات مع fallback للصفحة الرئيسية
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
-        // إرجاع الملف من الكاش إذا كان موجوداً
-        if (response) {
-          return response;
-        }
-        
-        // إذا لم يكن موجوداً، جلب من الشبكة
-        return fetch(event.request).then(function(response) {
-          // التحقق من صحة الاستجابة
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
+        if (response) return response;
+        return fetch(event.request).then(function(networkResponse) {
+          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+            return networkResponse;
           }
-          
-          // نسخ الاستجابة للكاش
-          var responseToCache = response.clone();
+          var responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME)
             .then(function(cache) {
               cache.put(event.request, responseToCache);
             });
-          
-          return response;
+          return networkResponse;
+        }).catch(() => {
+          // fallback للصفحة الرئيسية إذا فقد الاتصال
+          if (event.request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
         });
       })
   );
+});
+
+// تحديث الكاش تلقائياً عند نشر نسخة جديدة
+self.addEventListener('message', function(event) {
+  if (event.data === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });
