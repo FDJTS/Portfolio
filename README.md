@@ -67,3 +67,4 @@ All rights reserved © FDJTS 2026
 [Twitter](https://x.com/fut0r)
 [Discord Server](https://discord.com/invite/raU9FB2aeb)
 [E-mail](mailto:fut0r@tuta.io)
+---
