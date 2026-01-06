@@ -1,352 +1,154 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FDJTS - مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب. شروحات Arch Linux وGodot Engine مع مشاريع مفتوحة المصدر.">
-  <meta name="keywords" content="برمجة, تطوير ويب, Arch Linux, Godot Engine, شروحات برمجية, مشاريع مفتوحة المصدر, FDJTS">
-  <meta name="author" content="FDJTS">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://fdjts.github.io/Portfolio/">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fdjts.github.io/Portfolio/">
-  <meta property="og:title" content="FDJTS | مبرمج ومطور ويب">
-  <meta property="og:description" content="FDJTS - مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب. شروحات Arch Linux وGodot Engine مع مشاريع مفتوحة المصدر.">
-  <meta property="og:image" content="https://fdjts.github.io/Portfolio/channels4_profile.jpg">
-  <meta property="og:locale" content="ar_SA">
-  <meta property="og:site_name" content="FDJTS Portfolio">
-  
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://fdjts.github.io/Portfolio/">
-  <meta property="twitter:title" content="FDJTS | مبرمج ومطور ويب">
-  <meta property="twitter:description" content="FDJTS - مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب. شروحات Arch Linux وGodot Engine مع مشاريع مفتوحة المصدر.">
-  <meta property="twitter:image" content="https://fdjts.github.io/Portfolio/channels4_profile.jpg">
-  <meta property="twitter:creator" content="@fdjts1">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "FDJTS",
-    "description": "مبرمج ومطور ويب متخصص في شروحات البرمجة وتطوير الألعاب",
-    "url": "https://fdjts.github.io/Portfolio/",
-    "image": "https://fdjts.github.io/Portfolio/channels4_profile.jpg",
-    "sameAs": [
-      "https://github.com/FDJTS",
-      "https://www.youtube.com/@FDJTS",
-      "https://x.com/fdjts1",
-      "https://discord.com/invite/raU9FB2aeb"
-    ],
-    "knowsAbout": [
-      "Web Development",
-      "Game Development",
-      "Arch Linux",
-      "Godot Engine",
-      "Programming Tutorials"
-    ],
-    "jobTitle": "Web Developer & Programmer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    }
-  }
-  </script>
   <title>FDJTS | الصفحة الرئيسية</title>
   <link rel="stylesheet" href="style.css">
   <script src="scripts.js" defer></script>
   <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0067b8">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="FDJTS">
-  <link rel="apple-touch-icon" href="141354010-removebg-preview.png">
+  <meta name="description"
+    content="زياد (FDJTS) - مبرمج ومطور ويب شغوف. أشارك مشاريعي، شروحات برمجية، وتجاربي في عالم التكنولوجيا وجنو/لينكس.">
+  <meta name="keywords" content="برمجة, تطوير ويب, Godot, Linux, Arch Linux, FDJTS, زياد">
+  <meta property="og:title" content="FDJTS | مبرمج ومطور ويب">
+  <meta property="og:description" content="الموقع الشخصي لـ زياد (FDJTS). مشاريع مفتوحة المصدر، شروحات تقنية، والمزيد.">
+  <meta property="og:image" content="https://fdjts.netlify.app/channels4_profile.jpg">
+  <meta property="og:url" content="https://fdjts.netlify.app/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ziad (FDJTS)",
+    "url": "https://fdjts.netlify.app/",
+    "sameAs": [
+      "https://github.com/fut0r",
+      "https://x.com/fut0r",
+      "https://www.youtube.com/@realfut0r"
+    ],
+    "jobTitle": "Web Developer & Student",
+    "image": "https://fdjts.netlify.app/channels4_profile.jpg",
+    "description": "مطور ويب وطالب شغوف بالبرمجة والمصادر المفتوحة."
+  }
+  </script>
 </head>
-<body>
-  <button class="toggle-theme" aria-label="تبديل الوضع الليلي/الفاتح"></button>
-  <button class="toggle-lang" aria-label="English version"
-    onclick="window.location.href='index-en.html'"
-    style="position:fixed;top:18px;right:18px;background:var(--surface2);color:var(--main);border:none;border-radius:24px;padding:8px 22px;font-size:1rem;font-weight:500;cursor:pointer;z-index:100;">
-    EN
-  </button>
-  <nav aria-label="القائمة الرئيسية" role="navigation">
+
+<body class="home-page">
+  <button class="toggle-theme"></button>
+  <nav>
     <ul>
       <li><a href="index.html" class="active">الرئيسية</a></li>
+      <li><a href="now.html">الآن</a></li>
       <li><a href="projects.html">مشاريعي</a></li>
       <li><a href="tutorials.html">شروحات</a></li>
+      <li><a href="applications.html">برامجي</a></li>
       <li><a href="contact.html" class="cta">تواصل</a></li>
+      <li class="lang-switcher"><a href="index-en.html" title="English">🌐 EN</a></li>
     </ul>
   </nav>
   <header class="hero-header">
-    <div class="hero-content fade-in">
-      <span class="pre-title gradient-text">شروحات ومشاريع برمجية</span>
-      <h1 class="gradient-text">مبرمج ومطور ويب</h1>
-      <p>أشارك مشاريعي وشروحات عملية و برمجيه و شروحات لينكس مع صور وفيديو وأكواد كاملة.</p>
+    <div class="hero-content">
+      <span class="pre-title">شروحات ومشاريع برمجية</span>
+      <h1>مبرمج ومطور ويب</h1>
+      <p>أشارك مشاريعي وشروحات عملية و برمجيه و شروحات لينكس.</p>
       <div class="hero-btns">
-        <a href="projects.html" class="cta pulse-animation">شاهد مشاريعي</a>
+        <a href="projects.html" class="cta">شاهد مشاريعي</a>
         <a href="contact.html" class="secondary">تواصل معي</a>
       </div>
     </div>
     <div class="hero-img">
-      <img src="channels4_profile.jpg" alt="صورة الملف الشخصي لـ FDJTS" class="floating-animation" aria-label="صورة الملف الشخصي" loading="lazy">
+      <img src="channels4_profile.jpg" alt="FDJTS">
     </div>
   </header>
-  <main role="main" aria-label="المحتوى الرئيسي">
-    <section aria-labelledby="tutorials-title">
-      <h2 id="tutorials-title">شروحاتي</h2>
+  <main>
+    <section>
+      <h2>شروحاتي</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="شعار Godot Project" loading="lazy">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="Godot Project Logo">
           <h3>لعبة 3D باستخدام Godot وC++</h3>
-          <p>مشروع لعبة ثلاثية الأبعاد مع كود وصور وفيديو شرح كامل.</p>
-          <a href="tutorials-godot.html">شاهد الشرح الكامل</a>
+          <div style="margin-bottom:12px;">
+            <span class="tech-badge">Godot Engine</span>
+            <span class="tech-badge">C++</span>
+          </div>
+          <p><strong>الدور:</strong> مطور اللعبة ومصمم المراحل.</p>
+          <p>مشروع كامل ومفتوح المصدر للعبة ثلاثية الأبعاد. يهدف لتعليم أساسيات محرك Godot وكيفية ربطه مع C++ لأداء
+            أفضل.</p>
+          <a href="tutorials-godot.html" aria-label="شاهد شرح لعبة Godot">شاهد الشرح الكامل</a>
         </div>
         <div class="project-card">
-          <img src="Archlinux-logo-standard-version.png" alt="شعار Arch Linux" loading="lazy">
-          <h3>تثبيت Arch Linux بطريقتين</h3>
-          <p>شرح عملي بالصور والفيديو لتثبيت Arch Linux بالطريقة اليدوية وarchinstall.</p>
-          <a href="tutorials-archlinux.html">شاهد الشرح الكامل</a>
-        </div>
-      </div>
-    </section>
-    <!-- قسم الإحصائيات المتقدمة -->
-    <section aria-labelledby="stats-title" class="advanced-stats-section">
-      <h2 id="stats-title" class="gradient-text">إحصائياتي</h2>
-      <div class="stats-grid">
-        <div class="stat-card advanced-stat">
-          <div class="stat-icon">🚀</div>
-          <div class="stat-number" id="homeTotalProjects">0</div>
-          <div class="stat-label">مشروع مكتمل</div>
-          <div class="stat-progress">
-            <div class="progress-bar" style="width: 85%"></div>
+          <img src="archlinux-logo-standard-version.png" alt="Arch Linux Logo">
+          <h3>دليل Arch Linux الشامل</h3>
+          <div style="margin-bottom:12px;">
+            <span class="tech-badge">Linux</span>
+            <span class="tech-badge">Bash</span>
+            <span class="tech-badge">System Administration</span>
           </div>
-        </div>
-        <div class="stat-card advanced-stat">
-          <div class="stat-icon">📚</div>
-          <div class="stat-number" id="homeTotalTutorials">0</div>
-          <div class="stat-label">شروحات مفصلة</div>
-          <div class="stat-progress">
-            <div class="progress-bar" style="width: 70%"></div>
-          </div>
-        </div>
-        <div class="stat-card advanced-stat">
-          <div class="stat-icon">⏰</div>
-          <div class="stat-number" id="homeExperience">0</div>
-          <div class="stat-label">سنوات خبرة</div>
-          <div class="stat-progress">
-            <div class="progress-bar" style="width: 60%"></div>
-          </div>
-        </div>
-        <div class="stat-card advanced-stat">
-          <div class="stat-icon">⭐</div>
-          <div class="stat-number" id="homeSatisfaction">0</div>
-          <div class="stat-label">رضا العملاء</div>
-          <div class="stat-progress">
-            <div class="progress-bar" style="width: 100%"></div>
-          </div>
-        </div>
-        <div class="stat-card advanced-stat">
-          <div class="stat-icon">👥</div>
-          <div class="stat-number" id="homeFollowers">0</div>
-          <div class="stat-label">متابع</div>
-          <div class="stat-progress">
-            <div class="progress-bar" style="width: 75%"></div>
-          </div>
-        </div>
-        <div class="stat-card advanced-stat">
-          <div class="stat-icon">🎯</div>
-          <div class="stat-number" id="homeSuccessRate">0</div>
-          <div class="stat-label">معدل النجاح</div>
-          <div class="stat-progress">
-            <div class="progress-bar" style="width: 95%"></div>
-          </div>
+          <p><strong>الهدف:</strong> تبسيط تثبيت Arch Linux للمبتدئين.</p>
+          <p>دليل عملي وتفاعلي يشرح طريقتين للتثبيت (السكربت واليدوي) مع حلول للمشاكل الشائعة التي تواجه المستخدمين
+            الجدد.</p>
+          <a href="tutorials-archlinux.html" aria-label="شاهد شرح تثبيت Arch Linux">شاهد الشرح الكامل</a>
         </div>
       </div>
     </section>
 
-    <!-- قسم المهارات -->
-    <section aria-labelledby="skills-title" class="skills-section">
-      <h2 id="skills-title" class="gradient-text">مهاراتي التقنية</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>تطوير الويب</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span class="skill-name">HTML5</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="95"></div>
-              </div>
-              <span class="skill-percent">95%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">CSS3</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="90"></div>
-              </div>
-              <span class="skill-percent">90%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">JavaScript</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="85"></div>
-              </div>
-              <span class="skill-percent">85%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Node.js</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="80"></div>
-              </div>
-              <span class="skill-percent">80%</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-category">
-          <h3>تطوير الألعاب</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span class="skill-name">Godot Engine</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="88"></div>
-              </div>
-              <span class="skill-percent">88%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">C++</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="75"></div>
-              </div>
-              <span class="skill-percent">75%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">GDScript</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="90"></div>
-              </div>
-              <span class="skill-percent">90%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">3D Graphics</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="70"></div>
-              </div>
-              <span class="skill-percent">70%</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-category">
-          <h3>أنظمة التشغيل</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span class="skill-name">Linux</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="92"></div>
-              </div>
-              <span class="skill-percent">92%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Arch Linux</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="95"></div>
-              </div>
-              <span class="skill-percent">95%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Bash Scripting</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="85"></div>
-              </div>
-              <span class="skill-percent">85%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">System Admin</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="80"></div>
-              </div>
-              <span class="skill-percent">80%</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-category">
-          <h3>لغات البرمجة</h3>
-          <div class="skill-items">
-            <div class="skill-item">
-              <span class="skill-name">Python</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="85"></div>
-              </div>
-              <span class="skill-percent">85%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">JavaScript</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="90"></div>
-              </div>
-              <span class="skill-percent">90%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">C++</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="75"></div>
-              </div>
-              <span class="skill-percent">75%</span>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Bash</span>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="88"></div>
-              </div>
-              <span class="skill-percent">88%</span>
-            </div>
-          </div>
-        </div>
+    <section>
+      <h2>لماذا أعمل؟ (قيم ومبادئ)</h2>
+      <div class="info-card">
+        <p>
+          أؤمن بقوة البرمجيات مفتوحة المصدر. لا أكتب الكود فقط ليعمل، بل ليكون نظيفاً، قابلاً للقراءة، ومفيداً للآخرين.
+          كل مشروع هنا هو محاولة لتعلم شيء جديد ومشاركته معكم.
+        </p>
       </div>
     </section>
 
-    <section aria-labelledby="accounts-title">
-      <h2 id="accounts-title">حساباتي</h2>
-      <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: center; justify-content: flex-start;">
-        <a href="https://www.youtube.com/@FDJTS" target="_blank" rel="noopener noreferrer" title="يوتيوب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="شعار YouTube" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
-          <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#c4302b;font-size:1.1rem;">يوتيوب</span>
+    <section>
+      <h2>حساباتي</h2>
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center; justify-content: flex-start;">
+        <a href="https://www.youtube.com/@realfut0r" target="_blank" title="يوتيوب" class="social-link"
+          style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">يوتيوب</span>
         </a>
-        <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" rel="noopener noreferrer" title="ديسكورد" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="شعار Discord" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
-          <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#5865f2;font-size:1.1rem;">سيرفر ديسكورد</span>
+        <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" title="ديسكورد" class="social-link"
+          style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">ديسكورد</span>
         </a>
-        <a href="https://x.com/fdjts1" target="_blank" rel="noopener noreferrer" title="تويتر" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="شعار Twitter/X" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
-          <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#000;font-size:1.1rem;">تويتر</span>
+        <a href="https://x.com/fut0r" target="_blank" title="تويتر" class="social-link"
+          style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">تويتر</span>
         </a>
-        <a href="https://github.com/FDJTS" target="_blank" rel="noopener noreferrer" title="جيت هب" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:12px 20px;background:var(--surface2);border-radius:12px;transition:all 0.3s ease;">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="شعار GitHub" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #0002);background:#fff;border-radius:8px;padding:4px;" loading="lazy">
-          <span style="font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#24292f;font-size:1.1rem;">جيت هب</span>
+        <a href="https://github.com/FDJTS" target="_blank" title="جيت هب" class="social-link"
+          style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">جيت هب</span>
         </a>
       </div>
     </section>
-    <!-- زر مصدر الموقع في أقصى الشمال -->
-    <div style="position:fixed;left:24px;bottom:64px;z-index:100;">
-      <a href="https://github.com/FDJTS/Portfolio" target="_blank" rel="noopener noreferrer"
-         style="background:#f5f5f5;border-radius:4px;padding:6px 16px;font-family:'Cairo','Roboto',Arial,sans-serif;font-weight:bold;color:#24292f;font-size:1rem;text-decoration:none;box-shadow:0 2px 8px #0001;transition:background 0.2s;"
-         onmouseover="this.style.background='#eaeaea'"
-         onmouseout="this.style.background='#f5f5f5'"
-         aria-label="مصدر الموقع على GitHub">
-        Website Source Code
-      </a>
-    </div>
   </main>
+
   <footer>
-    <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <div class="footer-content">
+      <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+      <div style="margin-top: 24px;">
+        <a href="https://github.com/fut0r/Portfolio" target="_blank" class="source-code-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="20" height="20"
+            alt="">
+          كود الموقع
+        </a>
+      </div>
+    </div>
   </footer>
 </body>
+
 </html>

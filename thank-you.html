@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شكراً لك | FDJTS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
+  <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+</head>
+
+<body>
+  <button class="toggle-theme"></button>
+  <nav>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="now.html">الآن</a></li>
+      <li><a href="projects.html">مشاريعي</a></li>
+      <li><a href="tutorials.html">شروحات</a></li>
+      <li><a href="applications.html">برامجي</a></li>
+      <li><a href="contact.html">تواصل</a></li>
+      <li class="lang-switcher"><a href="thank-you-en.html" title="English">🌐 EN</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero-header">
+    <div class="hero-content">
+      <div style="font-size: 4rem; margin-bottom: 24px;" class="slide-in-text">✅</div>
+      <span class="pre-title slide-in-text">تم بنجاح</span>
+      <h1 class="slide-in-text">شكراً لتواصلك معي!</h1>
+      <p class="slide-in-text">تم استقبال رسالتك بنجاح وسأقوم بالرد عليك في أقرب وقت ممكن على بريدك الإلكتروني.</p>
+      <div class="hero-btns">
+        <a href="index.html" class="cta">العودة للصفحة الرئيسية</a>
+        <a href="contact.html" class="secondary">إرسال رسالة أخرى</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>ما الخطوة التالية؟</h2>
+      <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="info-card">
+          <div style="font-size: 2.5rem; margin-bottom: 12px;">📧</div>
+          <h3>تحقق من بريدك</h3>
+          <p>سيصلك بريد تأكيد استقبال الرسالة قريباً</p>
+        </div>
+        <div class="info-card">
+          <div style="font-size: 2.5rem; margin-bottom: 12px;">⏱️</div>
+          <h3>انتظر الرد</h3>
+          <p>سأقوم بالرد عليك في أقرب فرصة ممكنة</p>
+        </div>
+        <div class="info-card">
+          <div style="font-size: 2.5rem; margin-bottom: 12px;">💬</div>
+          <h3>تواصل إضافي</h3>
+          <p>يمكنك التواصل عبر وسائل التواصل الاجتماعي</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>تواصل معي عبر</h2>
+      <div
+        style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center; justify-content: flex-start; margin-top: 24px;">
+        <a href="https://www.youtube.com/@realfut0r" target="_blank" rel="noopener" title="يوتيوب" class="social-link"
+          style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">يوتيوب</span>
+        </a>
+        <a href="https://discord.com/invite/raU9FB2aeb" target="_blank" rel="noopener" title="ديسكورد"
+          class="social-link" style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">ديسكورد</span>
+        </a>
+        <a href="https://x.com/fut0r" target="_blank" rel="noopener" title="تويتر" class="social-link"
+          style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">تويتر</span>
+        </a>
+        <a href="https://github.com/fut0r" target="_blank" rel="noopener" title="جيت هب" class="social-link"
+          style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"
+            style="width:24px;">
+          <span style="color:var(--text); font-weight:600;">جيت هب</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+      <div style="margin-top: 24px;">
+        <a href="https://github.com/fut0r/Portfolio" target="_blank" class="source-code-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="20" height="20"
+            alt="">
+          كود الموقع
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
