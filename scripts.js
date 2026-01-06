@@ -231,7 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadGitHubProjects() {
   const container = document.getElementById("github-projects");
   if (!container) return;
-  container.innerHTML = `<div style="text-align:center;color:var(--main);">Loading projects...  </div>`;
+  const isArabic = document.documentElement.lang === 'ar';
+  container.innerHTML = `<div style="text-align:center;color:var(--main);">${isArabic ? '...جاري تحميل المشاريع...' : 'Loading projects...'}</div>`;
   try {
     const res = await fetch("https://api.github.com/users/FDJTS/repos?sort=updated");
     const repos = await res.json();
@@ -242,8 +243,8 @@ async function loadGitHubProjects() {
       grid.innerHTML += `
         <div class="project-card">
           <h3>${repo.name}</h3>
-          <p>${repo.description || "Project description not available."}</p>
-          <a href="${repo.html_url}" target="_blank" rel="noopener">Watch on GitHub</a>
+          <p>${repo.description || (isArabic ? "مشروع برمجي بدون وصف." : "Project description not available.")}</p>
+          <a href="${repo.html_url}" target="_blank" rel="noopener">${isArabic ? "شاهد على GitHub" : "Watch on GitHub"}</a>
         </div>
       `;
     });
@@ -255,7 +256,7 @@ async function loadGitHubProjects() {
       obs.observe(card);
     });
   } catch {
-    container.innerHTML = `<p style="color:#ffaa00;">Failed to load projects from GitHub.</p>`;
+    container.innerHTML = `<p style="color:#ffaa00;">${isArabic ? "تعذر تحميل المشاريع من GitHub." : "Failed to load projects from GitHub."}</p>`;
   }
 }
 
