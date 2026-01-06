@@ -226,6 +226,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.body.classList.contains('home-page')) {
     setTimeout(() => document.body.classList.add('visible'), 100);
   }
+
+
+  // Check if user has already donated to show the SuperThx tab
+  if (typeof checkDonationStatus === 'function') checkDonationStatus();
 });
 
 async function loadGitHubProjects() {
@@ -284,6 +288,109 @@ function copyCode(btn) {
   });
 }
 
+// --- 4. Donation System Logic (Simulation & Helpers) ---
+
+function simulateDonationEn() {
+  localStorage.setItem('donated', 'true');
+  window.location.href = 'superthx-en.html';
+}
+
+function simulateDonationAr() {
+  localStorage.setItem('donated', 'true');
+  window.location.href = 'superthx.html';
+}
+
+function checkDonationStatus() {
+  if (localStorage.getItem('donated') === 'true') {
+    document.querySelectorAll('.super-thx-tab').forEach(tab => {
+      tab.classList.add('show');
+    });
+  }
+}
+
+function initDonationForm() {
+  const form = document.getElementById("donation-form");
+  if (!form) return;
+
+  const cardInput = form.querySelector('input[name="card_number"]');
+  const cardTypeDisplay = document.getElementById("card-type-display");
+  const validationMsg = document.getElementById("card-validation-msg");
+  const amountBtns = form.querySelectorAll(".amount-btn");
+  const customAmount = form.querySelector('input[name="custom_amount"]');
+
+  // Initial SVG
+  if (cardTypeDisplay) cardTypeDisplay.innerHTML = getCardSvg('unknown');
+
+  // Amount selection
+  amountBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      amountBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      if (customAmount) customAmount.value = btn.dataset.amount;
+    });
+  });
+
+  // Real-time card validation
+  if (cardInput) {
+    cardInput.addEventListener("input", (e) => {
+      let val = e.target.value.replace(/\s+/g, '');
+      if (val.length > 16) val = val.slice(0, 16);
+      e.target.value = val.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+
+      const type = detectCardType(val);
+      if (cardTypeDisplay) cardTypeDisplay.innerHTML = getCardSvg(type);
+
+      if (val.length >= 13) {
+        const isValid = luhnCheck(val);
+        validationMsg.textContent = isValid ? (document.documentElement.lang === 'ar' ? '✓ بطاقة صالحة' : '✓ Valid Card') : (document.documentElement.lang === 'ar' ? '✗ بطاقة غير صالحة' : '✗ Invalid Card');
+        validationMsg.style.color = isValid ? "var(--main)" : "#ff4d4d";
+      } else {
+        validationMsg.textContent = "";
+      }
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    const val = cardInput.value.replace(/\s+/g, '');
+
+    if (!luhnCheck(val)) {
+      e.preventDefault();
+      alert(document.documentElement.lang === 'ar' ? "يرجى إدخال رقم بطاقة صالح!" : "Please enter a valid card number!");
+      return;
+    }
+
+    // In a real Moyasar scenario, you use their initialization logic:
+    /*
+    Moyasar.init({
+      element: '.mysr-form',
+      amount: parseInt(amount) * 100, // Amount in Halalas
+      currency: 'SAR',
+      description: 'Portfolio Donation',
+      publishable_api_key: MOYASAR_PUBLISHABLE_KEY,
+      callback_url: window.location.origin + '/superthx.html',
+      methods: ['creditcard', 'applepay', 'stcpay']
+    });
+    */
+
+    localStorage.setItem('donated', 'true');
+  });
+}
+
+function checkDonationStatus() {
+  if (localStorage.getItem('donated') === 'true') {
+    document.querySelectorAll('.super-thx-tab').forEach(tab => {
+      tab.classList.add('show');
+    });
+  }
+}
+
 // Global exposure for inline onclicks
 window.copyCode = copyCode;
+window.simulateDonationEn = simulateDonationEn;
+window.simulateDonationAr = simulateDonationAr;
 
+// On load
+document.addEventListener("DOMContentLoaded", () => {
+  // ... (previous logic handled in the main listener)
+  checkDonationStatus();
+});

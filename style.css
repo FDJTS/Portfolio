@@ -4,23 +4,17 @@
 /* Reset & base */
 :root {
   /* Zen / Apple Dark Palette */
-  --bg: #0d0d0d;
-  /* Deep Black/Gray */
-  --surface: #161616;
-  /* Slightly lighter container */
-  --surface2: #242424;
-  /* Borders and secondary elements */
-  --text: #f0f0f0;
-  /* Primary text */
-  --text-muted: #a0a0a0;
-  --accent: #d4d4d8;
-  /* Soft white/gray accent for "Zen" feel, or customize */
+  --bg: #0a0a0c;
+  --surface: #121217;
+  --surface2: #1c1c24;
+  --text: #ffffff;
+  --text-muted: #8e8e9a;
+  --accent: #ff007f;
   --accent-hover: #ffffff;
-  --main: #ffffff;
-
-  /* Glassmorphism */
-  --glass: rgba(22, 22, 22, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --main: #00ffca;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --playfair: "Playfair Display", serif;
   --blur: 16px;
 }
 
@@ -1363,6 +1357,221 @@ section {
   background: #28a745;
   color: white;
   border-color: #28a745;
+}
+
+/* Thank You Page SVG Enhancements */
+.thank-you-icon {
+  width: 64px;
+  height: 64px;
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+  margin: 0 auto 24px auto;
+  opacity: 1;
+  /* Ensure visible by default */
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.info-card .thank-you-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+}
+
+@keyframes thank-you-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-check {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-check 0.6s 0.3s ease forwards;
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-clock {
+  transform-origin: center;
+  animation: rotate-hand 4s linear infinite;
+}
+
+@keyframes rotate-hand {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-mail {
+  animation: mail-opening 4s infinite ease-in-out;
+}
+
+/* Mail opening logic for child parts */
+.mail-flap {
+  transform-origin: top;
+  transition: transform 0.6s ease;
+}
+
+.thank-you-icon:hover .mail-flap,
+.animate-mail .mail-flap {
+  animation: flap-open 4s infinite ease-in-out;
+}
+
+@keyframes flap-open {
+
+  0%,
+  15% {
+    transform: rotateX(0);
+  }
+
+  35%,
+  65% {
+    transform: rotateX(150deg);
+  }
+
+  85%,
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+.mail-paper {
+  transition: transform 0.6s ease;
+}
+
+.thank-you-icon:hover .mail-paper,
+.animate-mail .mail-paper {
+  animation: paper-up 4s infinite ease-in-out;
+}
+
+@keyframes paper-up {
+
+  0%,
+  25% {
+    transform: translateY(0);
+  }
+
+  45%,
+  60% {
+    transform: translateY(-4px);
+  }
+
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Donate Tab Styling */
+.donate-tab a {
+  font-family: var(--playfair) !important;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  color: var(--text) !important;
+  margin-left: 12px;
+}
+
+[dir="rtl"] .donate-tab a {
+  margin-left: 0;
+  margin-right: 12px;
+}
+
+.donate-tab a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-color: var(--main);
+}
+
+.donate-tab a.active {
+  background: var(--main);
+  color: var(--bg) !important;
+  border-color: var(--main);
+}
+
+/* Card Icon SVG Styling */
+.card-icon-svg {
+  width: 32px;
+  height: 20px;
+  fill: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.card-icon-svg.visa {
+  fill: #1a1f71;
+}
+
+.card-icon-svg.mastercard {
+  fill: #eb001b;
+}
+
+/* SuperThx Tab & Heart Animation */
+.super-thx-tab {
+  display: none;
+  /* Shown via JS after donation */
+}
+
+.super-thx-tab.show {
+  display: block;
+}
+
+.super-thx-tab a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent) !important;
+  font-weight: 700;
+}
+
+.heart-svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--accent);
+  animation: heart-beat 1.2s infinite ease-in-out;
+}
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.3);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.15);
+  }
+
+  60% {
+    transform: scale(1);
+  }
 }
 
 /* --- JS Expansion UI Components --- */

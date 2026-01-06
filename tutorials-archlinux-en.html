@@ -20,14 +20,15 @@
       <li><a href="applications-en.html">Applications</a></li>
       <li><a href="contact-en.html" class="cta">Contact</a></li>
       <li class="lang-switcher"><a href="tutorials-archlinux.html" title="Arabic">🌐 AR</a></li>
+      <li class="donate-tab"><a href="donate-en.html">Donate</a></li>
     </ul>
   </nav>
 
   <header class="hero-header">
     <div class="hero-content">
-      <span class="pre-title slide-in-text">Complete Guide</span>
-      <h1 class="slide-in-text">Install Arch Linux (Two Ways)</h1>
-      <p class="slide-in-text">Practical step-by-step guide with images, videos, and commands.</p>
+      <span class="pre-title slide-in-text">The No-Sweat Guide</span>
+      <h1 class="slide-in-text">Arch Linux (The Easy Way & The Real Way)</h1>
+      <p class="slide-in-text">Visual, practical, and zero fluff. Let's get it installed.</p>
     </div>
     <div class="hero-img hero-img-transparent">
       <img src="archlinux-logo-standard-version.png" alt="Arch Linux Logo">
@@ -50,13 +51,12 @@
       <img src="arch-script-e1560162541576.webp" alt="Arch Linux Booted from USB"
         style="width:100%;border-radius:12px;margin:18px 0;">
 
-      <h2>Method 1: archinstall (The Easiest)</h2>
+      <h2>Method 1: archinstall (The Shortcut)</h2>
       <div style="margin-bottom:16px;font-weight:600;color:var(--main);">
-        After booting from USB, run the following command and follow the interactive steps (choose language, disk,
-        user...).
+        After booting, just fire up this command and follow the prompts. Easy win.
         <br>
-        <span style="color:var(--text-muted);font-weight:normal;">Internet will be connected automatically if you have
-          Ethernet or supported Wi-Fi.</span>
+        <span style="color:var(--text-muted);font-weight:normal;">Pro tip: Ethernet usually works out of the box, no
+          stress.</span>
       </div>
 
       <pre
@@ -77,9 +77,9 @@
       <h2>Arch Installation Screen (archinstall)</h2>
       <img src="ai30.webp" alt="Arch Install archinstall" style="width:100%;border-radius:12px;margin:18px 0;">
 
-      <h2>Method 2: Manual Installation (Full Control)</h2>
-      <div style="margin-bottom:16px;font-weight:600;color:var(--text);">This method teaches you how Linux works.
-        Execute commands precisely:</div>
+      <h2>Method 2: Manual Installation (The Deep Dive)</h2>
+      <div style="margin-bottom:16px;font-weight:600;color:var(--text);">This is where you actually learn how Linux
+        works. Stick to the logic and you'll be fine:</div>
 
       <h3>1. Verify Boot Mode (BIOS or UEFI)</h3>
       <pre
@@ -179,10 +179,10 @@ systemctl enable gdm</code></pre>
 umount -R /mnt
 reboot</code></pre>
 
-      <h2 style="margin-top:40px;border-top:1px solid var(--surface2);padding-top:20px;">Part 2: Post-Installation
-        (Desktop & Drivers)</h2>
-      <div style="margin-bottom:12px;color:var(--text-muted);">Login with your new user (zyad). Now let's make it a
-        usable workstation.</div>
+      <h2 style="margin-top:40px;border-top:1px solid var(--surface2);padding-top:20px;">The Aesthetic Phase
+        (Post-Install)</h2>
+      <div style="margin-bottom:12px;color:var(--text-muted);">Logged in? Bet. Now let's make it look like a real
+        workstation.</div>
 
       <h3>Step 1: Install Microcode (Important for Stability)</h3>
       <div style="font-size:0.9rem;color:var(--text-muted);">For Intel processors:</div>
@@ -225,7 +225,7 @@ sudo systemctl enable sddm</code></pre>
       <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm</code></pre>
 
-      <div style="margin-top:20px;font-weight:bold;color:var(--main);">Finally, reboot one last time to enter your GUI!
+      <div style="margin-top:20px;font-weight:bold;color:var(--main);">Reboot one last time and enjoy the vibes!
       </div>
       <pre
         class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>reboot</code></pre>
