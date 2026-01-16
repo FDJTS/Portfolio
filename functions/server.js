@@ -14,6 +14,13 @@ const serverless = require('serverless-http');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Trust proxy for Netlify/express-rate-limit
+app.set('trust proxy', 1);
+
+// Diagnostic log for Netlify environment
+console.log('Runtime Check - MY_EMAIL exists:', !!process.env.MY_EMAIL);
+console.log('Runtime Check - MY_PASSWORD exists:', !!process.env.MY_PASSWORD);
+
 // Security Middlewares
 
 // 1. Helmet: Strict Content Security Policy
