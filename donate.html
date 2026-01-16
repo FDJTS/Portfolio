@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تبرع | FDJTS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+</head>
+
+<body>
+    <button class="toggle-theme"></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="now.html">الآن</a></li>
+            <li><a href="projects.html">المشاريع</a></li>
+            <li><a href="tutorials.html">الشروحات</a></li>
+            <li><a href="applications.html">التطبيقات</a></li>
+            <li><a href="contact.html">اتصل بي</a></li>
+            <li class="lang-switcher"><a href="donate-en.html" title="English"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg> EN</a></li>
+            <li class="donate-tab"><a href="donate.html" class="active">تبرع</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-header" style="min-height: 250px;">
+        <div class="hero-content">
+            <span class="pre-title slide-in-text">ادعم المحتوى</span>
+            <h1 class="slide-in-text" style="font-family: var(--playfair); font-style: italic;">تبرع لـ FDJTS</h1>
+            <p class="slide-in-text">إذا كنت تحب أعمالي مفتوحة المصدر، أو شروحات البرمجة، أو التطبيقات، فلا تتردد في
+                تقديم دعم بسيط. كل مساهمة تساعدني في الاستمرار!</p>
+        </div>
+    </header>
+
+    <main style="max-width: 600px; margin: 40px auto; padding: 0 24px;">
+        <section class="info-card" style="padding: 40px; text-align: right;">
+            <div class="kofi-section"
+                style="text-align: center; background: var(--surface); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(10px);">
+                <div style="margin-bottom: 30px;">
+                    <svg viewBox="0 0 24 24" style="width: 60px; height: 60px; fill: #29abe0; margin-bottom: 20px;">
+                        <path
+                            d="M23.881 8.948c-.773-4.085-4.859-5.005-4.859-5.005s-.548-.074-.548.338v.231c.328.016.962.062 1.488.297.636.257 2.067.927 2.458 3.511.458 3.016-1.125 4.966-2.583 5.378-1.503.414-2.887.103-3.033.078l.45-6.85s-.057-.59-.597-.59h-10.45c-.537 0-.585.53-.585.53s-.292 2.195-.58 4.417c-.822 5.963 1.968 10.37 5.109 10.37 5.908 0 8.019-3.411 8.019-3.411s.545-.407.712-.411s.297.009.673.042c1.78.14 4.502-.423 5.374-4.225.293-1.638.164-2.738-.078-3.707z" />
+                    </svg>
+                    <h2 style="font-family: var(--playfair); font-style: italic; margin-bottom: 10px;">ادعم العمل</h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">دعمك يساعدني في مواصلة تطوير المشاريع وتقديم
+                        المزيد من المحتوى.</p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 15px; max-width: 300px; margin: 0 auto;">
+                    <a href="https://ko-fi.com/fut0r" target="_blank" class="cta"
+                        style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px;">
+                        <img src="ko-fi_favion.png" alt="Ko-fi" style="width: 24px; height: 24px;">
+                        <span>ادعمني عبر Ko-fi</span>
+                    </a>
+
+                    <p style="margin-top: 25px; font-size: 0.85rem; color: var(--text-muted); opacity: 0.6;">
+                        رابط خارجي لصفحة Ko-fi آمنة. يدعم Mada و Visa و Apple Pay.
+                    </p>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

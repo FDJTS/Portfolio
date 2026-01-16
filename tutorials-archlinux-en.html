@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Easiest Way to Install Arch Linux | FDJTS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <script src="scripts.js" defer></script>
+</head>
+
+<body>
+  <button class="toggle-theme"></button>
+  <nav>
+    <ul>
+      <li><a href="index-en.html">Home</a></li>
+      <li><a href="now-en.html">Now</a></li>
+      <li><a href="projects-en.html">Projects</a></li>
+      <li><a href="tutorials-en.html" class="active">Tutorials</a></li>
+      <li><a href="applications-en.html">Applications</a></li>
+      <li><a href="contact-en.html" class="cta">Contact</a></li>
+      <li class="lang-switcher"><a href="tutorials-archlinux.html" title="Arabic"><svg
+            xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg> AR</a></li>
+      <li class="donate-tab"><a href="donate-en.html">Donate</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero-header">
+    <div class="hero-content">
+      <span class="pre-title slide-in-text">The No-Sweat Guide</span>
+      <h1 class="slide-in-text">Arch Linux (The Easy Way & The Real Way)</h1>
+      <p class="slide-in-text">Visual, practical, and zero fluff. Let's get it installed.</p>
+    </div>
+    <div class="hero-img hero-img-transparent">
+      <img src="archlinux-logo-standard-version.png" alt="Arch Linux Logo">
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Requirements</h2>
+      <ul>
+        <li>USB Flash Drive (4GB+)</li>
+        <li>Download <a href="https://archlinux.org/download/" target="_blank">Arch Linux ISO</a></li>
+        <li>Burning software like Rufus or balenaEtcher</li>
+      </ul>
+
+      <h2>BIOS (Boot Option) Screen</h2>
+      <img src="d0pcoyyfwsk61.jpg" alt="Gigabyte BIOS Boot Option" style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>Arch Linux Boot Screen</h2>
+      <img src="arch-script-e1560162541576.webp" alt="Arch Linux Booted from USB"
+        style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>Method 1: archinstall (The Shortcut)</h2>
+      <div style="margin-bottom:16px;font-weight:600;color:var(--main);">
+        After booting, just fire up this command and follow the prompts. Easy win.
+        <br>
+        <span style="color:var(--text-muted);font-weight:normal;">Pro tip: Ethernet usually works out of the box, no
+          stress.</span>
+      </div>
+
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>archinstall</code></pre>
+
+      <div class="info-card" style="text-align: left;">
+        <h3 style="margin-bottom:12px;">Important Notes:</h3>
+        <ul style="list-style-position: inside; color:var(--text-muted);">
+          <li>Select <b>Network configuration</b> then <b>NetworkManager</b> to avoid internet issues after
+            installation.</li>
+          <li>In <b>Disk configuration</b>, be careful choosing the drive (don't wipe your data!).</li>
+          <li>You can install a desktop environment directly by choosing <b>Profile</b> -> <b>Desktop</b> ->
+            <b>Gnome/KDE...</b>.
+          </li>
+        </ul>
+      </div>
+
+      <h2>Arch Installation Screen (archinstall)</h2>
+      <img src="ai30.webp" alt="Arch Install archinstall" style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>Method 2: Manual Installation (The Deep Dive)</h2>
+      <div style="margin-bottom:16px;font-weight:600;color:var(--text);">This is where you actually learn how Linux
+        works. Stick to the logic and you'll be fine:</div>
+
+      <h3>1. Verify Boot Mode (BIOS or UEFI)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>ls /sys/firmware/efi/efivars</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:12px;">If files are listed, you are in UEFI
+        mode. If error, you are in BIOS (Legacy) mode.</div>
+
+      <h3>2. Connect to Internet</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>ping -c 3 archlinux.org</code></pre>
+
+      <h3>3. Update System Clock</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>timedatectl set-ntp true</code></pre>
+
+      <h3>4. Partition the Disks</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>cfdisk /dev/sda</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:12px;">For BIOS: Create a Root partition and
+        optional Swap.<br>For UEFI: Create an EFI system partition (~512MB) and a Root partition.</div>
+
+      <h3>5. Format Partitions</h3>
+      <div style="font-size:0.9rem;color:var(--text-muted);">For Root partition:</div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>mkfs.ext4 /dev/sda1</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);">For Swap (if created):</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>mkswap /dev/sda2
+swapon /dev/sda2</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);">For UEFI only (EFI partition):</div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>mkfs.fat -F 32 /dev/sda1</code></pre>
+
+      <h3>6. Mount Partitions</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>mount /dev/sda1 /mnt</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);">For UEFI, mount the boot partition:</div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>mount --mkdir /dev/sda1 /mnt/boot</code></pre>
+
+      <h3>7. Install Base System</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>pacstrap -K /mnt base linux linux-firmware base-devel networkmanager nano sudo git firefox</code></pre>
+
+      <h3>8. Generate fstab</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>genfstab -U /mnt >> /mnt/etc/fstab</code></pre>
+
+      <h3>9. Chroot into New System</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>arch-chroot /mnt</code></pre>
+
+      <h3>10. Set Timezone</h3>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>ln -sf /usr/share/zoneinfo/Asia/Riyadh /etc/localtime
+hwclock --systohc</code></pre>
+
+      <h3>11. Localization</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>nano /etc/locale.gen</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:8px;">Uncomment <b>en_US.UTF-8 UTF-8</b> and
+        your local language, then save.</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf</code></pre>
+
+      <h3>12. Hostname and Keymap</h3>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>echo myarch > /etc/hostname
+echo "KEYMAP=us" > /etc/vconsole.conf</code></pre>
+
+      <h3>13. Users and Passwords</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>passwd</code></pre>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>useradd -m -G wheel -s /bin/bash zyad
+passwd zyad</code></pre>
+
+      <h3>Enable sudo for new user</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>EDITOR=nano visudo</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:8px;">Uncomment <b>%wheel ALL=(ALL:ALL)
+          ALL</b>.</div>
+
+      <h3>14. Bootloader (GRUB)</h3>
+      <div style="font-size:0.9rem;color:var(--text-muted);">For BIOS (Legacy):</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>pacman -S grub
+grub-install --target=i386-pc /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
+
+      <div style="font-size:0.9rem;color:var(--text-muted);">For UEFI:</div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
+
+      <h3>15. Enable Services</h3>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>systemctl enable NetworkManager
+systemctl enable gdm</code></pre>
+
+      <h3>16. Exit and Reboot</h3>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>exit
+umount -R /mnt
+reboot</code></pre>
+
+      <h2 style="margin-top:40px;border-top:1px solid var(--surface2);padding-top:20px;">The Aesthetic Phase
+        (Post-Install)</h2>
+      <div style="margin-bottom:12px;color:var(--text-muted);">Logged in? Bet. Now let's make it look like a real
+        workstation.</div>
+
+      <h3>Step 1: Install Microcode (Important for Stability)</h3>
+      <div style="font-size:0.9rem;color:var(--text-muted);">For Intel processors:</div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S intel-ucode</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);">For AMD processors:</div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S amd-ucode</code></pre>
+
+      <h3>Step 2: Install Graphics Drivers</h3>
+      <div style="font-size:0.9rem;color:var(--text-muted);">Choose your GPU vendor:</div>
+
+      <div style="margin-top:12px;"><b>NVIDIA</b></div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S nvidia nvidia-utils</code></pre>
+
+      <div><b>AMD</b></div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S msa-libgl lib32-mesa xf86-video-amdgpu vulkan-radeon</code></pre>
+
+      <div><b>Intel</b></div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S mesa lib32-mesa xf86-video-intel vulkan-intel</code></pre>
+
+      <h3>Step 3: Setup Audio (Pipewire - Modern & Low Latency)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S pipewire pipewire-pulse pipewire-alsa wireplumber</code></pre>
+
+      <h3>Step 4: Choose Your Desktop Environment</h3>
+
+      <div><b>Option A: GNOME (Modern, Apple-like)</b></div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S gnome gnome-extra gdm
+sudo systemctl enable gdm</code></pre>
+
+      <div><b>Option B: KDE Plasma (Windows-like, Customizable)</b></div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S plasma-meta kde-applications sddm
+sudo systemctl enable sddm</code></pre>
+
+      <div><b>Option C: XFCE (Lightweight, Classic)</b></div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
+sudo systemctl enable lightdm</code></pre>
+
+      <div style="margin-top:20px;font-weight:bold;color:var(--main);">Reboot one last time and enjoy the vibes!
+      </div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">Copy Code</button><code>reboot</code></pre>
+
+      <h2>Arch Linux Terminal After Boot</h2>
+      <img src="grub_menu.jpeg" alt="Arch Linux Terminal" style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>Additional Resources</h2>
+      <ul>
+        <li><a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank">Arch Wiki - Installation
+            Guide</a></li>
+        <li><a href="https://www.youtube.com/results?search_query=arch+linux+install+tutorial" target="_blank">Arch
+            Linux Installation Videos</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <span translate="no">All Rights Reserved <span id="year"></span> &copy; FDJTS</span>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+      <div style="margin-top: 24px;">
+        <a href="https://github.com/FDJTS/Portfolio" target="_blank" class="source-code-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="20" height="20"
+            alt="">
+          Website Source Code
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

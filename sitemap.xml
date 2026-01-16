@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://fdjts.netlify.app/index.html</loc><lastmod>2026-01-13</lastmod><priority>1.00</priority></url>
+  <url><loc>https://fdjts.netlify.app/index-en.html</loc><lastmod>2026-01-13</lastmod><priority>1.00</priority></url>
+  <url><loc>https://fdjts.netlify.app/projects.html</loc><lastmod>2026-01-13</lastmod><priority>0.80</priority></url>
+  <url><loc>https://fdjts.netlify.app/projects-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.80</priority></url>
+  <url><loc>https://fdjts.netlify.app/tutorials.html</loc><lastmod>2026-01-13</lastmod><priority>0.80</priority></url>
+  <url><loc>https://fdjts.netlify.app/tutorials-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.80</priority></url>
+  <url><loc>https://fdjts.netlify.app/contact.html</loc><lastmod>2026-01-13</lastmod><priority>0.60</priority></url>
+  <url><loc>https://fdjts.netlify.app/contact-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.60</priority></url>
+  <url><loc>https://fdjts.netlify.app/applications.html</loc><lastmod>2026-01-13</lastmod><priority>0.70</priority></url>
+  <url><loc>https://fdjts.netlify.app/applications-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.70</priority></url>
+  <url><loc>https://fdjts.netlify.app/now.html</loc><lastmod>2026-01-13</lastmod><priority>0.50</priority></url>
+  <url><loc>https://fdjts.netlify.app/now-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.50</priority></url>
+  <url><loc>https://fdjts.netlify.app/donate.html</loc><lastmod>2026-01-13</lastmod><priority>0.40</priority></url>
+  <url><loc>https://fdjts.netlify.app/donate-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.40</priority></url>
+  <url><loc>https://fdjts.netlify.app/tutorials-archlinux.html</loc><lastmod>2026-01-13</lastmod><priority>0.90</priority></url>
+  <url><loc>https://fdjts.netlify.app/tutorials-archlinux-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.90</priority></url>
+  <url><loc>https://fdjts.netlify.app/tutorials-godot.html</loc><lastmod>2026-01-13</lastmod><priority>0.90</priority></url>
+  <url><loc>https://fdjts.netlify.app/tutorials-godot-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.90</priority></url>
+  <url><loc>https://fdjts.netlify.app/thank-you.html</loc><lastmod>2026-01-13</lastmod><priority>0.30</priority></url>
+  <url><loc>https://fdjts.netlify.app/thank-you-en.html</loc><lastmod>2026-01-13</lastmod><priority>0.30</priority></url>
+</urlset>

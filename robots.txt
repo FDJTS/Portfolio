@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fdjts.netlify.app/sitemap.xml

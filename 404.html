@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - الصفحة غير موجودة | FDJTS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <style>
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--main), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    .error-message {
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .error-actions a {
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .error-actions .primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .error-actions .secondary {
+      background: var(--surface2);
+      color: var(--text);
+    }
+
+    .error-actions a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-element {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--main);
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(1) {
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-element:nth-child(2) {
+      top: 60%;
+      left: 80%;
+      animation-delay: 2s;
+    }
+
+    .floating-element:nth-child(3) {
+      top: 80%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    .floating-element:nth-child(4) {
+      top: 30%;
+      left: 70%;
+      animation-delay: 1s;
+    }
+
+    .floating-element:nth-child(5) {
+      top: 70%;
+      left: 50%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .error-code {
+        font-size: 6rem;
+      }
+
+      .error-message {
+        font-size: 1.2rem;
+      }
+
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="toggle-theme"></button>
+
+  <div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+  </div>
+
+  <nav aria-label="القائمة الرئيسية" role="navigation">
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="projects.html">مشاريعي</a></li>
+      <li><a href="tutorials.html">شروحات</a></li>
+      <li><a href="contact.html" class="cta">تواصل</a></li>
+      <li class="lang-switcher"><a href="404-en.html" title="English"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg> EN</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="error-container">
+      <div class="error-code">404</div>
+      <h1 class="error-message">عذراً، الصفحة التي تبحث عنها غير موجودة</h1>
+      <p style="color: #666; margin-bottom: 40px; max-width: 500px;">
+        يبدو أنك ضللت الطريق! لا تقلق، يمكنك العودة للصفحة الرئيسية أو استكشاف المحتوى المتاح.
+      </p>
+
+      <div class="error-actions">
+        <a href="index.html" class="primary">العودة للرئيسية</a>
+        <a href="projects.html" class="secondary">مشاريعي</a>
+        <a href="tutorials.html" class="secondary">شروحات</a>
+        <a href="contact.html" class="secondary">تواصل</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    جميع الحقوق محفوظة &copy; FDJTS 2025
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>

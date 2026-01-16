@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>أسهل طريقة لتثبيت Arch Linux | FDJTS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+  <script src="scripts.js" defer></script>
+</head>
+
+<body>
+  <button class="toggle-theme"></button>
+  <nav>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="now.html">الآن</a></li>
+      <li><a href="projects.html">مشاريعي</a></li>
+      <li><a href="tutorials.html" class="active">شروحات</a></li>
+      <li><a href="applications.html">برامجي</a></li>
+      <li><a href="contact.html" class="cta">تواصل</a></li>
+      <li class="lang-switcher"><a href="tutorials-archlinux-en.html" title="English"><svg
+            xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg> EN</a></li>
+      <li class="donate-tab"><a href="donate.html">تبرع</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero-header">
+    <div class="hero-content">
+      <span class="pre-title slide-in-text">شرح كامل</span>
+      <h1 class="slide-in-text">تثبيت Arch Linux (طريقتان)</h1>
+      <p class="slide-in-text">دليل عملي خطوة بخطوة مع الصور والأوامر.</p>
+    </div>
+    <div class="hero-img hero-img-transparent">
+      <img src="archlinux-logo-standard-version.png" alt="شعار Arch Linux">
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>المتطلبات</h2>
+      <ul>
+        <li>فلاشة USB 4GB+</li>
+        <li>تحميل <a href="https://archlinux.org/download/" target="_blank">Arch Linux ISO</a></li>
+        <li>برنامج حرق مثل Rufus أو balenaEtcher</li>
+      </ul>
+
+      <h2>شاشة BIOS (Boot Option)</h2>
+      <img src="d0pcoyyfwsk61.jpg" alt="Gigabyte BIOS Boot Option" style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>شاشة إقلاع Arch Linux من الفلاشة</h2>
+      <img src="arch-script-e1560162541576.webp" alt="Arch Linux Booted from USB"
+        style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>الطريقة الأولى: archinstall (الأسهل)</h2>
+      <div style="margin-bottom:16px;font-weight:600;color:var(--main);">
+        بعد الإقلاع من الفلاشة، شغل الأمر التالي ثم اتبع الخطوات التفاعلية (اختيار اللغة، القرص، المستخدم...).
+        <br>
+        <span style="color:var(--text-muted);font-weight:normal;">سيتم تفعيل الإنترنت تلقائيًا إذا كان لديك كابل أو شبكة
+          واي فاي مدعومة.</span>
+      </div>
+
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>archinstall</code></pre>
+
+      <div class="info-card" style="text-align: right;">
+        <h3 style="margin-bottom:12px;">ملاحظات هامة:</h3>
+        <ul style="list-style-position: inside; color:var(--text-muted);">
+          <li>اختر <b>Network configuration</b> أثناء التثبيت لتفعيل الإنترنت.</li>
+          <li>يمكنك تثبيت برامج إضافية من قائمة <b>Additional packages</b> أثناء التثبيت.</li>
+        </ul>
+      </div>
+
+      <h2>شاشة تثبيت Arch (archinstall)</h2>
+      <img src="ai30.webp" alt="Arch Install archinstall" style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>الطريقة اليدوية الكاملة (كل أمر منفصل مع شرح واضح)</h2>
+      <div style="margin-bottom:16px;font-weight:600;color:var(--text);">نفذ الأوامر التالية بالترتيب بعد الإقلاع من
+        الفلاشة:</div>
+
+      <h3>تغيير خط التيرمنال (مثال: خط أكبر وأكثر وضوحًا)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>setfont ter- 132b</code></pre>
+
+      <h3>تفعيل الإنترنت السلكي تلقائيًا</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>systemctl start dhcpcd</code></pre>
+
+      <h3>أو تفعيل الإنترنت اللاسلكي (واي فاي)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>wifi-menu</code></pre>
+
+      <h3>تأكد من الاتصال بالإنترنت</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>ping archlinux.org</code></pre>
+
+      <h3>تحديث الساعة تلقائيًا</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>timedatectl set-ntp true</code></pre>
+
+      <h3>تحديث قاعدة بيانات الحزم (اختياري قبل التقسيم)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>pacman -Sy</code></pre>
+
+      <h3>تقسيم القرص الصلب (مثال: cfdisk)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>cfdisk /dev/sda</code></pre>
+
+      <h3>تهيئة القسم الرئيسي بنظام ext4</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>mkfs.ext4 /dev/sda1</code></pre>
+
+      <h3>تركيب القسم على نقطة التثبيت</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>mount /dev/sda1 /mnt</code></pre>
+
+      <h3>تثبيت النظام الأساسي وبرامج الشبكة الأساسية</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>pacstrap /mnt base linux linux-firmware networkmanager nano sudo</code></pre>
+
+      <h3>إنشاء ملف fstab تلقائيًا</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>genfstab -U /mnt >> /mnt/etc/fstab</code></pre>
+
+      <h3>الدخول إلى النظام الجديد (chroot)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>arch-chroot /mnt</code></pre>
+
+      <h3>تعيين المنطقة الزمنية</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>ln -sf /usr/share/zoneinfo/Asia/Riyadh /etc/localtime</code></pre>
+
+      <h3>مزامنة الساعة مع الهاردوير</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>hwclock --systohc</code></pre>
+
+      <h3>تفعيل اللغات (افتح الملف وفعل en_US.UTF-8 و ar_SA.UTF-8)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>nano /etc/locale.gen</code></pre>
+
+      <h3>توليد اللغات</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>locale-gen</code></pre>
+
+      <h3>ضبط اللغة الافتراضية للنظام</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>echo "LANG=en_US.UTF-8" > /etc/locale.conf</code></pre>
+
+      <h3>ضبط تخطيط الكيبورد الافتراضي</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>echo "KEYMAP=ar" > /etc/vconsole.conf</code></pre>
+
+      <h3>تعيين اسم الجهاز (hostname)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>echo myarch > /etc/hostname</code></pre>
+
+      <h3>ضبط ملف hosts</h3>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1       localhost" >> /etc/hosts
+echo "127.0.1.1 myarch.localdomain myarch" >> /etc/hosts</code></pre>
+
+      <h3>تعيين كلمة مرور للمستخدم الجذر (root)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>passwd</code></pre>
+
+      <h3>تثبيت محمل الإقلاع (GRUB) لنظام BIOS</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>pacman -S grub</code></pre>
+
+      <h3>تثبيت GRUB على القرص</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>grub-install --target=i386-pc /dev/sda</code></pre>
+
+      <h3>توليد ملف إعدادات GRUB</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
+
+      <h3>تفعيل الشبكة تلقائيًا بعد الإقلاع</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>systemctl enable NetworkManager</code></pre>
+
+      <h3>إضافة مستخدم عادي مع صلاحيات sudo</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>useradd -m -G wheel -s /bin/bash zyad</code></pre>
+
+      <h3>تعيين كلمة مرور للمستخدم الجديد</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>passwd zyad</code></pre>
+
+      <h3>تفعيل صلاحيات sudo للمجموعة wheel</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>EDITOR=nano visudo</code></pre>
+      <div style="color:var(--text-muted);font-size:1rem;margin-bottom:8px;">ابحث عن السطر <b>%wheel ALL=(ALL:ALL)
+          ALL</b> واحذف علامة # من أوله ثم احفظ واخرج</div>
+
+      <h3>تثبيت متصفح وبرامج أساسية (firefox, git, base-devel)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>pacman -S firefox git base-devel</code></pre>
+
+      <h3>تثبيت yay (AUR helper) من المستخدم العادي</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>su - zyad</code></pre>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>git clone https://aur.archlinux.org/yay.git</code></pre>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>cd yay</code></pre>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>makepkg -si</code></pre>
+
+      <h3>تفعيل الألوان في pacman</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo nano /etc/pacman.conf</code></pre>
+      <div style="color:var(--text-muted);font-size:1rem;margin-bottom:8px;">احذف علامة # من <b>Color</b> و
+        <b>ParallelDownloads</b> ثم احفظ واخرج
+      </div>
+
+      <h3>تثبيت واجهة GNOME كاملة</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S gnome gnome-extra</code></pre>
+
+      <h3>تفعيل مدير الدخول GNOME</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo systemctl enable gdm</code></pre>
+
+      <h3>تحديث النظام بالكامل بعد أول إقلاع</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -Syu</code></pre>
+
+      <h3>16. الخروج وإعادة التشغيل</h3>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>exit
+umount -R /mnt
+reboot</code></pre>
+
+      <h2 style="margin-top:40px;border-top:1px solid var(--surface2);padding-top:20px;">الجزء الثاني: ما بعد التثبيت
+        (الواجهة والتعريفات)</h2>
+      <div style="margin-bottom:12px;color:var(--text-muted);">سجل الدخول بالمستخدم الجديد (zyad). الآن لنجعل النظام
+        جاهزاً للاستخدام اليومي.</div>
+
+      <h3>الخطوة 1: تثبيت المايكروكود (Microcode) لثبات المعالج</h3>
+      <div style="font-size:0.9rem;color:var(--text-muted);">لمعالجات Intel:</div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S intel-ucode</code></pre>
+      <div style="font-size:0.9rem;color:var(--text-muted);">لمعالجات AMD:</div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S amd-ucode</code></pre>
+
+      <h3>الخطوة 2: تثبيت تعريفات كرت الشاشة</h3>
+      <div style="font-size:0.9rem;color:var(--text-muted);">اختر حسب نوع الكرت لديك:</div>
+
+      <div style="margin-top:12px;"><b>NVIDIA</b></div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S nvidia nvidia-utils</code></pre>
+
+      <div><b>AMD</b></div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S msa-libgl lib32-mesa xf86-video-amdgpu vulkan-radeon</code></pre>
+
+      <div><b>Intel</b></div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S mesa lib32-mesa xf86-video-intel vulkan-intel</code></pre>
+
+      <h3>الخطوة 3: إعداد الصوت (Pipewire - الحديث والأفضل)</h3>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S pipewire pipewire-pulse pipewire-alsa wireplumber</code></pre>
+
+      <h3>الخطوة 4: تثبيت واجهة سطح المكتب (Desktop Environment)</h3>
+
+      <div><b>الخيار أ: واجهة GNOME (حديثة وأنيقة)</b></div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S gnome gnome-extra gdm
+sudo systemctl enable gdm</code></pre>
+
+      <div><b>الخيار ب: واجهة KDE Plasma (تشبه ويندوز وقابلة للتخصيص)</b></div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S plasma-meta kde-applications sddm
+sudo systemctl enable sddm</code></pre>
+
+      <div><b>الخيار ج: واجهة XFCE (خفيفة وكلاسيكية للأجهزة الضعيفة)</b></div>
+      <pre class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
+sudo systemctl enable lightdm</code></pre>
+
+      <div style="margin-top:20px;font-weight:bold;color:var(--main);">وأخيراً، أعد التشغيل لتدخل إلى الواجهة الرسومية!
+      </div>
+      <pre
+        class="code-box"><button class="copy-btn" onclick="copyCode(this)">نسخ الكود</button><code>reboot</code></pre>
+
+      <h2>شاشة ترمينال Arch Linux بعد الإقلاع</h2>
+      <img src="grub_menu.jpeg" alt="Arch Linux Terminal" style="width:100%;border-radius:12px;margin:18px 0;">
+
+      <h2>مصادر وفيديوهات إضافية</h2>
+      <ul>
+        <li><a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank">Arch Wiki - Installation
+            Guide</a></li>
+        <li><a href="" target="_blank">فيديوهات يوتيوب عن تثبيت Arch Linux</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <span translate="no">All Rights Reserved <span id="year"></span> &copy; FDJTS</span>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+      <div style="margin-top: 24px;">
+        <a href="https://github.com/FDJTS/Portfolio" target="_blank" class="source-code-link">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="20" height="20"
+            alt="">
+          كود الموقع
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

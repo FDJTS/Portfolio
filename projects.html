@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مشاريعي | FDJTS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
+  <link rel="icon" type="image/x-icon" href="141354010-removebg-preview.png">
+</head>
+
+<body>
+  <button class="toggle-theme"></button>
+  <nav>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="now.html">الآن</a></li>
+      <li><a href="projects.html" class="active">مشاريعي</a></li>
+      <li><a href="tutorials.html">شروحات</a></li>
+      <li><a href="applications.html">برامجي</a></li>
+      <li><a href="contact.html" class="cta">تواصل</a></li>
+      <li class="lang-switcher"><a href="projects-en.html" title="English"><svg xmlns="http://www.w3.org/2000/svg"
+            width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg> EN</a></li>
+      <li class="donate-tab"><a href="donate.html">تبرع</a></li>
+    </ul>
+  </nav>
+  <header class="hero-header" style="min-height:220px;padding-bottom:40px;">
+    <div class="hero-content">
+      <span class="pre-title">مشاريعي البرمجية</span>
+      <h1>كل المشاريع متاحة على GitHub ومفتوحة المصدر</h1>
+      <div class="hero-btns">
+        <a href="https://github.com/FDJTS" class="cta" target="_blank">شاهد على GitHub</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="channels4_profile.jpg" alt="FDJTS">
+    </div>
+  </header>
+  <main>
+    <section id="github-projects" style="text-align:center;">
+      <h2>مشاريع GitHub</h2>
+      <!-- المشاريع سيتم تحميلها تلقائيًا -->
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <span translate="no">جميع الحقوق محفوظة <span id="year"></span> &copy; FDJTS</span>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+    </div>
+  </footer>
+</body>
+
+</html>

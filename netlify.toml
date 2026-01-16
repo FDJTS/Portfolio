@@ -1,0 +1,16 @@
+[build]
+  functions = "functions"
+
+[functions]
+  external_node_modules = ["express", "serverless-http", "zod", "helmet", "cors", "morgan", "hpp", "xss", "nodemailer"]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/send"
+  to = "/.netlify/functions/server/send"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
