@@ -44,7 +44,12 @@
   </header>
   <main>
     <section>
-      <form class="contact-form" id="contactForm" novalidate>
+      <form class="contact-form" id="contactForm" name="contact" data-netlify="true" netlify-honeypot="bot-field"
+        novalidate>
+        <!-- Honeypot for Bot Protection -->
+        <p class="hidden" style="display:none;">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
         <input type="text" name="name" id="name" placeholder="اسمك" required>
         <input type="email" name="email" id="email" placeholder="بريدك الإلكتروني" required>
         <input type="text" name="subject" id="subject" placeholder="الموضوع" required>

@@ -44,13 +44,16 @@
   </header>
   <main>
     <section>
-      <form class="contact-form" action="https://formsubmit.co/fut0r@tuta.io" method="POST">
-        <input type="text" name="name" placeholder="Who's asking?" required>
-        <input type="email" name="email" placeholder="Where's the reply going?" required>
-        <textarea name="message" placeholder="What's on your mind?" rows="6" required></textarea>
-        <input type="hidden" name="_subject" value="New message from your personal website">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://fdjts.netlify.app/thank-you-en.html">
+      <form class="contact-form" id="contactForm" name="contact-en" data-netlify="true" netlify-honeypot="bot-field"
+        novalidate>
+        <!-- Honeypot for Bot Protection -->
+        <p class="hidden" style="display:none;">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+        <input type="text" name="name" id="name" placeholder="Who's asking?" required>
+        <input type="email" name="email" id="email" placeholder="Where's the reply going?" required>
+        <input type="text" name="subject" id="subject" placeholder="Subject" required>
+        <textarea name="message" id="message" placeholder="What's on your mind?" rows="6" required></textarea>
         <button type="submit">Send it</button>
       </form>
     </section>

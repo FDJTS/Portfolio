@@ -83,81 +83,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'contact.html'));
 });
 
-app.post('/send', emailLimiter, async (req, res) => {
-  // 1. Zod Validation
-  const validation = contactSchema.safeParse(req.body);
-
-  if (!validation.success) {
-    const errorMessages = validation.error.errors.map(e => e.message).join(', ');
-    return res.status(400).json({ message: errorMessages });
-  }
-
-  const { name, email, subject, message } = validation.data;
-
-  // 2. XSS Sanitization
-  const cleanName = xss(name);
-  const cleanSubject = xss(subject);
-  const cleanMessage = xss(message);
-
-  // Ensure environment variables are present
-  if (!process.env.MY_EMAIL || !process.env.MY_PASSWORD) {
-    console.error('ERROR: Missing MY_EMAIL or MY_PASSWORD in environment variables.');
-    return res.status(500).json({ message: 'Server configuration error.' });
-  }
-
-  // Updated Transport for Tuta (or any SMTP)
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.tutanota.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: process.env.SMTP_SECURE === 'true' || false,
-    auth: {
-      user: process.env.MY_EMAIL,
-      pass: process.env.MY_PASSWORD
-    }
-  });
-
-  const htmlBody = `
-    <h3>📩 رسالة جديدة من ${cleanName}</h3>
-    <p><strong>الإيميل:</strong> ${email}</p>
-    <p><strong>الموضوع:</strong> ${cleanSubject}</p>
-    <p><strong>الرسالة:</strong><br>${cleanMessage}</p>
-  `;
-
-  try {
-    // إرسال للمطور (Updated Recipient)
-    await transporter.sendMail({
-      from: `"Portfolio Website" <${process.env.MY_EMAIL}>`,
-      to: 'fut0r@tuta.io', // Recipient
-      subject: `New Contact Message from ${cleanName}`,
-      html: htmlBody
-    });
-
-    // إرسال نسخة للمرسل (Optional: might be blocked by some providers if not authenticated properly)
-    await transporter.sendMail({
-      from: `"FDJTS Portfolio" <${process.env.MY_EMAIL}>`,
-      to: email,
-      subject: 'Thanks for contacting us! شكراً لتواصلك معنا',
-      html: `
-        <h3>Hello ${cleanName},</h3>
-        <p>Thanks for your message! We'll get back to you as soon as possible.</p>
-        <hr>
-        <p><strong>Your message:</strong></p>
-        <p>${cleanMessage}</p>
-        <br>
-        <p>شكراً لتواصلك معنا، سيتم الرد عليك قريباً إن شاء الله.</p>
-      `
-    });
-
-    res.status(200).json({ message: 'Message sent successfully!' });
-  } catch (err) {
-    console.error('--- SendMail Detailed Error ---');
-    console.error('Error Code:', err.code);
-    console.error('Error Message:', err.message);
-    if (err.response) console.error('SMTP Response:', err.response);
-    console.error('--------------------------------');
-    res.status(500).json({ message: 'Failed to send email. Check logs for details.' });
-  }
+// Health check or simple status
+app.get('/status', (req, res) => {
+  res.json({ status: 'secure-backend-active', logging: 'enabled' });
 });
+
 
 // Export for Netlify Functions
 module.exports.handler = serverless(app);

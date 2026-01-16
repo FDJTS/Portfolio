@@ -249,30 +249,24 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.textContent = 'جاري الإرسال...'; // "Sending..."
       submitBtn.disabled = true;
 
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-      };
+      const formData = new FormData(contactForm);
+      const params = new URLSearchParams(formData);
+      params.append('form-name', contactForm.getAttribute('name'));
 
       try {
-        const response = await fetch('/send', {
+        const response = await fetch('/', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: params.toString()
         });
-
-        const result = await response.json();
 
         if (response.ok) {
           // Success
-          window.location.href = 'thank-you.html';
+          const isArabic = document.documentElement.lang === 'ar';
+          window.location.href = isArabic ? 'thank-you.html' : 'thank-you-en.html';
         } else {
-          // Error (Validation or Server)
-          alert(`Error: ${result.message}`);
+          // Error
+          alert(`Error: Submission failed.`);
           submitBtn.textContent = originalBtnText;
           submitBtn.disabled = false;
         }
