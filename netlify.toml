@@ -6,11 +6,9 @@
   node_bundler = "esbuild"
 
 [[redirects]]
-  from = "/send"
-  to = "/.netlify/functions/server/send"
+  from = "/status"
+  to = "/.netlify/functions/server/status"
   status = 200
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Let Netlify handle static files and forms naturally. 
+# We only use the function for specific security headers or status checks if needed.

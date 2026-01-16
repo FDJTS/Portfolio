@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
       params.append('form-name', contactForm.getAttribute('name'));
 
       try {
-        const response = await fetch('/', {
+        const response = await fetch(window.location.pathname, {
           method: 'POST',
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: params.toString()
