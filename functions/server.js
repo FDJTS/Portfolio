@@ -92,17 +92,20 @@ app.post('/send', emailLimiter, async (req, res) => {
   const cleanSubject = xss(subject);
   const cleanMessage = xss(message);
 
+  // Ensure environment variables are present
+  if (!process.env.MY_EMAIL || !process.env.MY_PASSWORD) {
+    console.error('ERROR: Missing MY_EMAIL or MY_PASSWORD in environment variables.');
+    return res.status(500).json({ message: 'Server configuration error.' });
+  }
+
   // Updated Transport for Tuta (or any SMTP)
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.tutanota.com',
-    port: process.env.SMTP_PORT || 587,
-    secure: false, // true for 465, false for other ports
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: process.env.SMTP_SECURE === 'true' || false,
     auth: {
       user: process.env.MY_EMAIL,
       pass: process.env.MY_PASSWORD
-    },
-    tls: {
-      ciphers: 'SSLv3' // Sometimes helps with handshake issues
     }
   });
 
@@ -122,7 +125,7 @@ app.post('/send', emailLimiter, async (req, res) => {
       html: htmlBody
     });
 
-    // إرسال نسخة للمرسل
+    // إرسال نسخة للمرسل (Optional: might be blocked by some providers if not authenticated properly)
     await transporter.sendMail({
       from: `"FDJTS Portfolio" <${process.env.MY_EMAIL}>`,
       to: email,
@@ -140,8 +143,12 @@ app.post('/send', emailLimiter, async (req, res) => {
 
     res.status(200).json({ message: 'Message sent successfully!' });
   } catch (err) {
-    console.error('SendMail Error:', err);
-    res.status(500).json({ message: 'Failed to send email.' });
+    console.error('--- SendMail Detailed Error ---');
+    console.error('Error Code:', err.code);
+    console.error('Error Message:', err.message);
+    if (err.response) console.error('SMTP Response:', err.response);
+    console.error('--------------------------------');
+    res.status(500).json({ message: 'Failed to send email. Check logs for details.' });
   }
 });
 
