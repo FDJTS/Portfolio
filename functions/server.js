@@ -41,7 +41,7 @@ app.use(cors({
 // 2. Morgan: Forensic Logging
 app.use(morgan('combined')); // Logs IP, User-Agent, Time, Method, URL, Status
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '..')));
 app.use(express.json()); // Body parser must be before HPP
 
 // 3. HPP: HTTP Parameter Pollution Protection
@@ -73,7 +73,7 @@ const contactSchema = z.object({
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'contact.html'));
+  res.sendFile(path.join(__dirname, '..', 'contact.html'));
 });
 
 app.post('/send', emailLimiter, async (req, res) => {
